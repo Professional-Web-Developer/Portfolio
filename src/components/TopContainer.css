@@ -1,0 +1,12 @@
+.topcontainer{
+    background: url('../assets/wpdp2.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0 ,0.5);
+}
+.Aboutme{
+    color: white
+}

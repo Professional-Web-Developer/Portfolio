@@ -1,0 +1,66 @@
+.educationcontainer{
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    padding: 200px 0;
+}
+.edu_content{
+    margin: 30px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.postgraduate{
+    margin: 12px;
+    width: 300px;
+    height: fit-content;
+    text-align: center;
+    padding: 12px;
+    margin-right: 3%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
+    border: 2px solid #f64c08;
+    background-color: #ff7b0a;
+}
+.undergraduate{
+    padding: 12px;
+    text-align: center;
+    margin: 8px;
+    width: 300px;
+    margin-right: 3%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
+    border: 2px solid #f64c08;
+    background-color: #ff7b0a;
+}
+.school{
+    padding: 20px;
+    height: fit-content;
+    margin: 12px;
+    text-align: center;
+    width: 300px;
+    margin-right: 3%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
+    border: 2px solid #f64c08;
+    background-color: #ff7b0a;
+}
+h1{
+    text-align: center;
+}
+.school>p{
+    margin: 15px;
+}
+.school>h2{
+    padding-bottom: 20px;
+}
+.undergraduate>p{
+    margin: 15px;
+}
+.undergraduate>h2{
+    padding-bottom: 20px;
+}
+.postgraduate>p{
+    margin: 17px;
+}
+.postgraduate>h2{
+    padding-bottom: 22px;
+}

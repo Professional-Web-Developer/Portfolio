@@ -1,0 +1,35 @@
+.project_imag{
+    width: 300px;
+    height: 150px;
+}
+/* .project_imag:last-child{
+    width: 200px;
+    height: 175px;
+} */
+.project{
+    width: 350px;
+    height: 200px;
+    margin: 15px;
+    transition: transform 100ms ease-in;
+}
+.project:hover{
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    color: white;
+    background-color: #f64c08;
+    transform: scale(1.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.project_content{
+    padding: 10px;
+}
+.project_content>h4{
+    padding-bottom: 5px;
+}
+.project_content>p{
+    font-size: 15px;
+}
