@@ -63,3 +63,41 @@
 .skillcontainer__slider8>span>.MuiLinearProgress-bar{
     background-color: yellow;
 }
+@media only screen and (min-width: 960px){
+    .skillcontainer{
+        height: 100vh;
+        width: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 200px 0;
+        
+    }
+    /* .skillcontainer__img>img{
+    
+        width: 150px;
+        border-radius: 3px;
+        object-fit: contain;
+    } */
+    /* .skillcontainer__img{
+        flex: 0.2;
+        text-align: center;
+        margin-right: 100px;
+    }
+    .skillcontainer__text{
+        color: white;
+        flex: 0.8;
+        text-align: left;
+        max-width: 500px;
+        margin-bottom: 20px;
+    } */
+    .skillcontainer{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 200px 0;
+        
+    }
+}
