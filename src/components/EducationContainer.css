@@ -64,7 +64,7 @@ h1{
 .postgraduate>h2{
     padding-bottom: 22px;
 }
-@media screen  and (min-width: 940px){
+@media screen  and (max-width: 940px){
     .edu_content{
         width: 90vw;
         display: flex;

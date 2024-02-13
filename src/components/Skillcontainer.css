@@ -63,7 +63,7 @@
 .skillcontainer__slider8>span>.MuiLinearProgress-bar{
     background-color: yellow;
 }
-@media only screen and (min-width: 960px){
+@media only screen and (max-width: 960px){
     .skillcontainer{
         height: 100vh;
         width: 50vh;
