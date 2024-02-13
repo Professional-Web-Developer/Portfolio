@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import "./project.css"
+import "./Project.css"
 
 export default function Project(key,img,title,desc,link) {
 const [show,setshow]=useState(false)
