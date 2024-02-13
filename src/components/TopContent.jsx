@@ -10,7 +10,7 @@ function TopContent() {
             <h1>Mr.Kavin Pasupathy</h1>
             <p>A Professional Web Developer</p>
             <a href={cv} download={cv}>
-                <button className='topcontent_downloadbtn'>Download CV</button>
+                <button className='topcontent_downloadbtn'>Download Resume</button>
             </a>
             <Link to="projects" smooth={true} duration={500}>
                 <button className='topcontent_workbtn'>My Work</button>
