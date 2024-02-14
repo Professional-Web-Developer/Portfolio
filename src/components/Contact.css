@@ -4,8 +4,10 @@
     flex-direction: column;
     color: white;
     justify-content: center;
-    margin: 200px 0;
+    min-width: 500px;
+    min-height: 800px;
     align-items: center;
+    margin: 200px 0;
 }
 .contact>a{
     background-color: white;
@@ -14,6 +16,7 @@
     background-color: white;
 }
 .contact_container{
+    
     display: flex;
     flex-direction: column;
     color: white;

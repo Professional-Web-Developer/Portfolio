@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 .projectcontainer{
     display: flex;
+    min-width: 500px;
+    min-height: 800px;
     flex-direction: column;
     color: white;
     height: 100vh;

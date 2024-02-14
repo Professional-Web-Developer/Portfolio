@@ -8,7 +8,7 @@ import EducationContainer from './components/EducationContainer'
 import Contact from './components/Contact'
 export default function App() {
   return (
-    <div>
+    <div  className="App">
       <Header/>
       <TopContainer/>
       <Skillcontainer/>

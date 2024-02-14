@@ -2,3 +2,6 @@ a{
     text-decoration: none;
     color: white;
 }
+.App{
+    min-height: 100vh;
+}

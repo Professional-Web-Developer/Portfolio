@@ -1,6 +1,8 @@
 .educationcontainer{
     height: 100vh;
     width: 100vw;
+    min-width: 500px;
+    min-height: 800px;
     color: white;
     padding: 200px 0;
 }

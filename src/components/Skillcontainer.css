@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
 .skillcontainer{
+    min-width: 500px;
+    min-height: 800px;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -9,6 +11,7 @@
     
 }
 .skillcontainer__text{
+    /* border: 2px solid white; */
     color: white;
     flex: 0.6;
     text-align: left;
@@ -20,6 +23,7 @@
 
 }
 .skillcontainer__img{
+    /* border: 2px solid white; */
     flex: 0.4;
     text-align: center;
     margin-right: 100px;
@@ -63,42 +67,38 @@
 .skillcontainer__slider8>span>.MuiLinearProgress-bar{
     background-color: yellow;
 }
-@media only screen and (max-width: 960px){
+@media only screen and (max-width: 650px){
     .skillcontainer{
-        height: 100vh;
-        width: 50vh;
+        /* height: 100vh;
+        width: 50vh; */
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 200px 0;
-        margin-bottom: 200px;
+        padding-bottom: 200px;
+        flex-direction: column;
+        align-content: center;
+
         
     }
-    /* .skillcontainer__img>img{
-    
-        width: 150px;
+    .skillcontainer__img>img{
+        /* border: 2px solid white; */
+        width: 300px;
         border-radius: 3px;
         object-fit: contain;
-    } */
-    /* .skillcontainer__img{
-        flex: 0.2;
+    }
+    .skillcontainer__img{
+        /* border: 2px solid white; */
+        flex: 0.3;
         text-align: center;
         margin-right: 100px;
     }
     .skillcontainer__text{
+        /* border: 2px solid white; */
         color: white;
-        flex: 0.8;
+        flex: 0.7;
         text-align: left;
         max-width: 500px;
         margin-bottom: 20px;
-    } */
-    .skillcontainer{
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 200px 0;
-        
     }
 }
