@@ -18,13 +18,13 @@ export default function EducationContainer() {
             </div>
             <div className="undergraduate">
             <h2>Bachelor of Computer Science</h2>
-            <h3>PERCENTAGE:74%</h3>
+            <h3>PERCENTAGE:75.6%</h3>
             <h3>2020-2023</h3>
             <p>I have completed my Bachelor's Degree in <span>Government Arts And Science College, Thittamalai</span></p>
             </div>
             <div className="postgraduate">
             <h2>Master Of Computer Application</h2>
-            <h3>PERCENTAGE:waiting...</h3>
+            <h3>CGPA:7.88</h3>
             <h3>2023-2025</h3>
             <p>I am currently pursuing my master’s degree in computer application at <span>Kongu Engineering College</span></p>
             </div>

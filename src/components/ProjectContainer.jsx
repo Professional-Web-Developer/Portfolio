@@ -3,6 +3,7 @@ import './ProjectContainer.css'
 import tm from '../assets/tm.png'
 import vd from '../assets/vd.png'
 import et from '../assets/et.png'
+import realestate from '../assets/realestate.png'
 import mc1 from '../assets/mc1.png'
 import { Element } from 'react-scroll'
 import Project from './project/Project'
@@ -31,6 +32,13 @@ function ProjectContainer() {
     title:"miles converter",
     desc:"dont worry about destination",
     link:"https://github.com/Professional-Web-Developer/miles-converter.git",
+  },
+  ,
+  {
+    img:realestate,
+    title:"Real Estate",
+    desc:"Both land and yacht.Lives everywhere.",
+    link:"https://github.com/Professional-Web-Developer/Real-Estate.git",
   },
 ];
   return (
