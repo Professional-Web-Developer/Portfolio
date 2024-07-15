@@ -18,7 +18,7 @@ export default function EducationContainer() {
             </div>
             <div className="undergraduate">
             <h2>Bachelor of Computer Science</h2>
-            <h3>PERCENTAGE:75.6%</h3>
+            <h3>CGPA:7.571</h3>
             <h3>2020-2023</h3>
             <p>I have completed my Bachelor's Degree in <span>Government Arts And Science College, Thittamalai</span></p>
             </div>
