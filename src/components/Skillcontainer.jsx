@@ -30,11 +30,11 @@ function Skillcontainer() {
                 </div>
                 <h5>C</h5>
                 <div className='skillcontainer__slider skillcontainer__slider5'>
-                <LinearProgress variant="determinate" value={100} />
+                <LinearProgress variant="determinate" value={90} />
                 </div>
                 <h5>C++</h5>
                 <div className='skillcontainer__slider skillcontainer__slider6'>
-                <LinearProgress variant="determinate" value={90} />
+                <LinearProgress variant="determinate" value={60} />
                 </div>
                 <h5>Python</h5>
                 <div className='skillcontainer__slider skillcontainer__slider7'>
