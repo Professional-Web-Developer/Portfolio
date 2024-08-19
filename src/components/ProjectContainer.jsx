@@ -4,12 +4,19 @@ import tm from '../assets/tm.png'
 import vd from '../assets/vd.png'
 import et from '../assets/et.png'
 import realestate from '../assets/realestate.png'
+import houserental from '../assets/houserental.png'
 import mc1 from '../assets/mc1.png'
 import { Element } from 'react-scroll'
 import Project from './project/Project'
 
 function ProjectContainer() {
   const my_projects=[{
+    img:houserental,
+    title:"House rental",
+    desc:"User can book place for their need and also postplaces for rental",
+    link:"https://github.com/Professional-Web-Developer/House_Rental.git",
+  },
+  {
     img:tm,
     title:"task manager",
     desc:"we can manage work with time",
