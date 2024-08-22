@@ -62,7 +62,7 @@
     background-color: green;
 }
 .skillcontainer__slider1>span>.MuiLinearProgress-bar{
-    background-color: tomato;
+    background-color: rgb(71, 234, 255);
 }
 .skillcontainer__slider8>span>.MuiLinearProgress-bar{
     background-color: yellow;

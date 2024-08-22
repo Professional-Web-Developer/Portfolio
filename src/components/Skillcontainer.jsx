@@ -28,13 +28,21 @@ function Skillcontainer() {
                 <div className='skillcontainer__slider skillcontainer__slider4'>
                 <LinearProgress variant="determinate" value={90} />
                 </div>
+                <h5>SQL</h5>
+                <div className='skillcontainer__slider skillcontainer__slider6'>
+                <LinearProgress variant="determinate" value={70} />
+                </div>
                 <h5>C</h5>
                 <div className='skillcontainer__slider skillcontainer__slider5'>
-                <LinearProgress variant="determinate" value={90} />
+                <LinearProgress variant="determinate" value={60} />
                 </div>
                 <h5>C++</h5>
                 <div className='skillcontainer__slider skillcontainer__slider6'>
-                <LinearProgress variant="determinate" value={60} />
+                <LinearProgress variant="determinate" value={30} />
+                </div>
+                <h5>Java</h5>
+                <div className='skillcontainer__slider skillcontainer__slider6'>
+                <LinearProgress variant="determinate" value={30} />
                 </div>
                 <h5>Python</h5>
                 <div className='skillcontainer__slider skillcontainer__slider7'>
