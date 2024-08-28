@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-scroll'
 import'./TopContent.css'
-import cv from '../assets/Resume_Kavin.pdf'
+import cv from '../assets/Kavin_P_Resume.pdf'
 
 function TopContent() {
   return (
