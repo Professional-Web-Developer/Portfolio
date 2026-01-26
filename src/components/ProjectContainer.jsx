@@ -3,6 +3,7 @@ import React from 'react';
 import { Element } from 'react-scroll';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Github } from 'lucide-react';
+import Image from 'next/image';
 import './ProjectContainer.css';
 
 const projects = [
@@ -113,7 +114,13 @@ function ProjectContainer() {
           {projects.map((project, index) => (
             <TiltCard key={index} className="project-card glass">
               <div className="project-image-wrapper">
-                <img src={project.img} alt={project.title} className="project-img" />
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="project-img"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
                 <div className="project-overlay">
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-btn">
                     <Github size={20} /> View Code

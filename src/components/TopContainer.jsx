@@ -50,7 +50,7 @@ function TopContainer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            I'm <b>Kavin Pasupathy</b>. I am a recent graduate with a passion for building scalable web applications.
+            I&apos;m <b>Kavin Pasupathy</b>. I am a recent graduate with a passion for building scalable web applications.
             Currently focusing on the <b>MERN Stack</b> at Belsterns Technologies to deliver dynamic user-centric solutions.
           </motion.p>
 

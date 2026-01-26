@@ -17,7 +17,7 @@ function Contact() {
       >
         <div className="contact-header">
           <h2>Get in Touch</h2>
-          <p>Let's connect and build something amazing together.</p>
+          <p>Let&apos;s connect and build something amazing together.</p>
         </div>
 
         <div className="contact-links">
