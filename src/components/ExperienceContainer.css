@@ -1,0 +1,253 @@
+.experience-container {
+    min-height: 70vh;
+    width: 100%;
+    padding: 100px 20px;
+    background-color: var(--background);
+    /* Add a subtle background gradient mesh */
+    background-image: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 20%);
+    display: flex;
+    justify-content: center;
+}
+
+.experience-wrapper {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.exp-list {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.exp-row {
+    display: flex;
+    position: relative;
+    /* Make sure rows connect seamlessly */
+    padding-bottom: 60px;
+}
+
+.exp-row:last-child {
+    padding-bottom: 0;
+}
+
+/* Timeline Graphic */
+.exp-timeline-graphic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+    min-width: 40px;
+    position: relative;
+}
+
+.exp-line {
+    position: absolute;
+    top: 10px;
+    bottom: -60px;
+    /* Extend to next item */
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), rgba(255, 255, 255, 0.05));
+    z-index: 0;
+}
+
+.exp-row:last-child .exp-line {
+    display: none;
+}
+
+.exp-node {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 2px solid var(--primary);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    /* Align with card header */
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+.exp-node-inner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--secondary);
+}
+
+/* Content Area */
+.exp-content {
+    flex: 1;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.glass-panel:hover::before {
+    transform: translateX(100%);
+}
+
+.glass-panel:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.exp-role-group h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.exp-company-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+}
+
+.icon-subtle {
+    opacity: 0.8;
+}
+
+.exp-company-row h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.exp-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.exp-badge {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--secondary);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exp-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.exp-description {
+    color: #bbb;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+}
+
+.exp-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.exp-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #ddd;
+    transition: all 0.2s;
+}
+
+.glass-panel:hover .exp-tag {
+    background: rgba(99, 102, 241, 0.15);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .exp-timeline-graphic {
+        display: none;
+        /* Hide timeline line on mobile for cleaner stack */
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exp-meta {
+        align-items: flex-start;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .exp-row {
+        padding-bottom: 30px;
+    }
+}

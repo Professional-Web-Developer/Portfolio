@@ -1,104 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+.skillcontainer {
+    min-height: 80vh;
+    width: 100%;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+    position: relative;
+}
 
-.skillcontainer{
-    min-width: 500px;
-    min-height: 800px;
-    height: 100vh;
+.skill-content {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section-header p {
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.skill-card {
+    padding: 30px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+}
+
+.skill-icon {
+    color: var(--primary);
+}
+
+.skill-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.additional-info {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.language-badge {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 200px 0;
-    
+    gap: 12px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    color: #aaa;
+    font-size: 0.95rem;
 }
-.skillcontainer__text{
-    /* border: 2px solid white; */
-    color: white;
-    flex: 0.6;
-    text-align: left;
-    max-width: 500px;
-    margin-bottom: 20px;
-}
-.skillcontainer__text>h2{
-    font-size: 30px;
 
-}
-.skillcontainer__img{
-    /* border: 2px solid white; */
-    flex: 0.4;
-    text-align: center;
-    margin-right: 100px;
-}
-.skillcontainer__img>img{
-    
-    width: 500px;
-    border-radius: 3px;
-    object-fit: contain;
-}
-.skillcontainer__skillset>h5{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    padding-bottom: 20px;
-    padding-top: 10px;
-}
-.skillcontainer__slider>.MuiLinearProgress-root{
-    background-color: rgb(68,58,60);
-}
-.skillcontainer__slider2>span>.MuiLinearProgress-bar{
-    background-color: tomato;
-}
-.skillcontainer__slider3>span>.MuiLinearProgress-bar{
-    background-color: red;
-}
-.skillcontainer__slider4>span>.MuiLinearProgress-bar{
-    background-color: rgb(63, 191, 63);
-}
-.skillcontainer__slider5>span>.MuiLinearProgress-bar{
-    background-color: blue;
-}
-.skillcontainer__slider6>span>.MuiLinearProgress-bar{
-    background-color: rgb(8, 130, 218);
-}
-.skillcontainer__slider7>span>.MuiLinearProgress-bar{
-    background-color: green;
-}
-.skillcontainer__slider1>span>.MuiLinearProgress-bar{
-    background-color: rgb(71, 234, 255);
-}
-.skillcontainer__slider8>span>.MuiLinearProgress-bar{
-    background-color: yellow;
-}
-@media only screen and (max-width: 650px){
-    .skillcontainer{
-        /* height: 100vh;
-        width: 50vh; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 200px 0;
-        padding-bottom: 200px;
-        flex-direction: column;
-        align-content: center;
-
-        
-    }
-    .skillcontainer__img>img{
-        /* border: 2px solid white; */
-        width: 300px;
-        border-radius: 3px;
-        object-fit: contain;
-    }
-    .skillcontainer__img{
-        /* border: 2px solid white; */
-        flex: 0.3;
-        text-align: center;
-        margin-right: 100px;
-    }
-    .skillcontainer__text{
-        /* border: 2px solid white; */
-        color: white;
-        flex: 0.7;
-        text-align: left;
-        max-width: 500px;
-        margin-bottom: 20px;
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

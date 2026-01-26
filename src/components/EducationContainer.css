@@ -1,76 +1,117 @@
-.educationcontainer{
-    height: 100vh;
-    width: 100vw;
-    min-width: 500px;
-    min-height: 800px;
-    color: white;
-    padding: 200px 0;
-}
-.edu_content{
-    margin: 30px;
-    margin-top: 100px;
+.educationcontainer {
+    min-height: 80vh;
+    width: 100%;
+    padding: 100px 20px;
+    background-color: var(--background);
     display: flex;
-    text-align: center;
     justify-content: center;
+}
+
+.education-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    margin-left: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 40px;
+    width: 100%;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -9px;
+    /* -2px border + -7px to center 16px dot */
+    top: 24px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 4px solid var(--background);
+}
+
+.timeline-content {
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-content:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--card-border);
+}
+
+.timeline-header {
+    display: flex;
     align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
-.postgraduate{
-    margin: 12px;
-    width: 300px;
-    height: fit-content;
-    text-align: center;
-    padding: 12px;
-    margin-right: 3%;
-    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
-    border: 2px solid #f64c08;
-    background-color: #ff7b0a;
+
+.timeline-icon {
+    color: var(--secondary);
+    background: rgba(168, 85, 247, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.undergraduate{
-    padding: 12px;
-    text-align: center;
-    margin: 8px;
-    width: 300px;
-    margin-right: 3%;
-    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
-    border: 2px solid #f64c08;
-    background-color: #ff7b0a;
+
+.timeline-info h3 {
+    font-size: 1.2rem;
+    color: var(--foreground);
+    margin-bottom: 4px;
 }
-.school{
-    padding: 20px;
-    height: fit-content;
-    margin: 12px;
-    text-align: center;
-    width: 300px;
-    margin-right: 3%;
-    box-shadow: 0px 4px 8px rgba(0,0,0,.6);
-    border: 2px solid #f64c08;
-    background-color: #ff7b0a;
+
+.timeline-info h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #aaa;
 }
-h1{
-    text-align: center;
+
+.timeline-details {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
-.school>p{
-    margin: 15px;
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
 }
-.school>h2{
-    padding-bottom: 20px;
+
+.timeline-desc {
+    color: #888;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
-.undergraduate>p{
-    margin: 15px;
-}
-.undergraduate>h2{
-    padding-bottom: 20px;
-}
-.postgraduate>p{
-    margin: 17px;
-}
-.postgraduate>h2{
-    padding-bottom: 22px;
-}
-@media screen  and (max-width: 940px){
-    .edu_content{
-        width: 90vw;
-        display: flex;
+
+@media (max-width: 600px) {
+    .timeline {
+        margin-left: 10px;
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+    }
+
+    .timeline-header {
         flex-direction: column;
+        align-items: flex-start;
     }
 }
