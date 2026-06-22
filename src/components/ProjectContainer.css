@@ -1,56 +1,102 @@
 .projectcontainer {
     min-height: 100vh;
     width: 100%;
-    padding: 100px 20px;
+    padding: 120px 20px;
     background-color: var(--background);
-    /* Add subtle hex pattern or dot pattern for "tech" feel */
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0);
-    background-size: 40px 40px;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+/* Hex dot pattern */
+.projectcontainer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(0, 212, 255, 0.08) 1px, transparent 0);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .project-content {
     max-width: 1200px;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
     padding: 20px 0;
     perspective: 1000px;
-    /* Essential for 3D tilt */
 }
 
 .project-card {
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s ease;
-    border: 1px solid var(--card-border);
-    background: rgba(255, 255, 255, 0.03);
-    /* Base glass */
+    transition: all 0.35s ease;
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    background: rgba(0, 212, 255, 0.02);
     transform-style: preserve-3d;
     cursor: pointer;
+    position: relative;
+}
+
+/* Top-left HUD corner */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-top: 1.5px solid var(--primary);
+    border-left: 1.5px solid var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    box-shadow: -2px -2px 8px rgba(0, 212, 255, 0.4);
+}
+
+/* Bottom-right HUD corner */
+.project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    border-bottom: 1.5px solid var(--primary);
+    border-right: 1.5px solid var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    box-shadow: 2px 2px 8px rgba(0, 212, 255, 0.4);
 }
 
 .project-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
     box-shadow:
-        0 20px 40px -10px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(99, 102, 241, 0.2);
-    /* Glow */
-    border-color: var(--primary);
+        0 0 25px rgba(0, 212, 255, 0.12),
+        0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.project-card:hover::before,
+.project-card:hover::after {
+    opacity: 1;
 }
 
 .project-image-wrapper {
     width: 100%;
-    height: 220px;
+    height: 200px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
 }
 
 .project-img {
@@ -58,10 +104,12 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+    filter: brightness(0.85) saturate(0.8);
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    filter: brightness(0.7) saturate(0.6);
 }
 
 .project-overlay {
@@ -70,7 +118,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(2, 5, 16, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,58 +132,72 @@
 }
 
 .project-link-btn {
-    background: white;
-    color: black;
-    padding: 12px 24px;
-    border-radius: 30px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 10px 22px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
     transform: translateY(20px);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.3);
 }
 
 .project-card:hover .project-link-btn {
     transform: translateY(0);
 }
 
+.project-link-btn:hover {
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.6);
+}
+
 .project-info {
-    padding: 30px;
+    padding: 24px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.01), transparent);
+    background: linear-gradient(to bottom, rgba(0, 212, 255, 0.01), transparent);
 }
 
 .project-tags {
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 6px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
 }
 
 .tag {
-    font-size: 0.7rem;
-    color: var(--secondary);
-    background: rgba(168, 85, 247, 0.1);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 0.65rem;
+    color: var(--primary);
+    background: rgba(0, 212, 255, 0.06);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    font-family: 'Courier New', monospace;
 }
 
 .project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
     color: #fff;
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
 }
 
 .project-card p {
-    color: #aaa;
-    font-size: 0.95rem;
+    color: #475569;
+    font-size: 0.9rem;
     line-height: 1.6;
 }

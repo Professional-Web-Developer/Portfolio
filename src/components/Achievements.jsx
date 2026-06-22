@@ -45,6 +45,7 @@ function Achievements() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
                         >
+                            <div className="card-scan" />
                             <div className="achievement-icon" style={{ color: item.color }}>{item.icon}</div>
                             <h3>{item.title}</h3>
                             <p>{item.desc}</p>

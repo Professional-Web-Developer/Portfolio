@@ -24,11 +24,19 @@ function TopContainer() {
         style={{ y, opacity }}
       >
         <div className="hero-text">
+          <motion.div
+            className="hero-badge"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Available for Opportunities
+          </motion.div>
           <h1 className="hero-title">
             <motion.span
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               style={{ display: 'block', overflow: 'hidden' }}
             >
               Building Digital
@@ -36,8 +44,9 @@ function TopContainer() {
             <motion.span
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="gradient-text-hero"
+              data-text="Experience"
               style={{ display: 'block', overflow: 'hidden' }}
             >
               Experience
@@ -50,8 +59,8 @@ function TopContainer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            I&apos;m <b>Kavin Pasupathy</b>. I am a recent graduate with a passion for building scalable web applications.
-            Currently focusing on the <b>MERN Stack</b> at Belsterns Technologies to deliver dynamic user-centric solutions.
+            I&apos;m <b>Kavin Pasupathy</b>. A Software Engineer specializing in full-stack development,
+            <b> AI Agents</b>, and <b>Agentic AI</b>. Building scalable web applications and intelligent automation systems at <b>Belsterns Technologies</b>.
           </motion.p>
 
           <motion.div

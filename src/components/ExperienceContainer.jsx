@@ -8,19 +8,19 @@ import './ExperienceContainer.css';
 const experience = [
     {
         company: 'Belsterns Technologies',
-        role: 'Software Engineer',
-        duration: 'Jan 11, 2025 - Present',
-        desc: 'Spearheading the development of core application features using Next.js and React. optimizing performance, and mentoring junior developers. Implementing secure CI/CD pipelines and ensuring code quality standards.',
+        role: 'Junior Software Engineer',
+        duration: 'Jan 2025 – Present',
+        desc: 'Working across Eztest and client projects — building full-stack web applications with Next.js, MERN Stack, and Dockerized environments. Contributing to AI Agents, Agentic AI, and Agentic Workflow solutions for business automation, open-source tooling with Next.js & PostgreSQL, and cross-functional client deliverables.',
         type: 'Full-time',
-        skills: ['Next.js', 'React', 'Cloud', 'System Design']
+        skills: ['Next.js', 'MERN Stack', 'AI Agents', 'Agentic AI', 'Agentic Workflow', 'PostgreSQL', 'Docker']
     },
     {
         company: 'Belsterns Technologies',
-        role: 'Software Development Intern',
-        duration: 'Sept 21, 2024 - Jan 11, 2025',
-        desc: 'Collaborated with senior engineers to design responsive UIs. Gained extensive hands-on experience with modern web technologies, reducing load times by 40% through code splitting and optimization strategies.',
+        role: 'Software Development Engineer Intern',
+        duration: 'Sep 2024 – Jan 2025',
+        desc: 'Designed and optimized web applications in MERN Stack and Next.js. Assisted senior developers in delivering scalable software aligned with client requirements.',
         type: 'Internship',
-        skills: ['React', 'JavaScript', 'CSS', 'Git']
+        skills: ['React', 'Next.js', 'JavaScript', 'CSS', 'Git']
     },
 ];
 

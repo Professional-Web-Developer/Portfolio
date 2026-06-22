@@ -10,7 +10,7 @@ const education = [
     institution: 'Kongu Engineering College, Perundurai',
     degree: 'Master of Computer Applications (MCA)',
     duration: 'August 2023 - April 2025',
-    score: 'CGPA: 8.14',
+    score: 'CGPA: 8.4',
     desc: 'Deep specialization in MERN Stack, Advanced Software Engineering, and Data Structures.',
     icon: <GraduationCap />
   },

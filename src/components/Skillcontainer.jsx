@@ -7,7 +7,6 @@ import {
     Code2,
     Database,
     Terminal,
-    Globe,
     Cpu,
     Server,
     FileJson,
@@ -17,23 +16,30 @@ import {
     Github as GithubIcon,
     Languages,
     Workflow,
-    BarChart3
+    BarChart3,
+    Bot,
+    Zap,
+    BrainCircuit
 } from 'lucide-react';
 
 const skills = [
     { name: 'Next.js', icon: <Layers /> },
     { name: 'React JS', icon: <Code2 /> },
     { name: 'Node JS', icon: <Server /> },
-    { name: 'Docker', icon: <Container /> },
-    { name: 'SQL', icon: <Database /> },
-    { name: 'Mongo DB', icon: <Database /> },
-    { name: 'Git & GitHub', icon: <GithubIcon /> },
+    { name: 'MERN Stack', icon: <Layout /> },
+    { name: 'AI Agents', icon: <Bot /> },
+    { name: 'Agentic AI', icon: <BrainCircuit /> },
     { name: 'JavaScript', icon: <FileJson /> },
     { name: 'Python', icon: <Terminal /> },
-    { name: 'Power Automate', icon: <Workflow /> },
-    { name: 'Zoho Analytics', icon: <BarChart3 /> },
+    { name: 'SQL', icon: <Database /> },
+    { name: 'MongoDB', icon: <Database /> },
+    { name: 'Docker', icon: <Container /> },
+    { name: 'Git & GitHub', icon: <GithubIcon /> },
+    { name: 'Claude AI', icon: <Zap /> },
+    { name: 'Cursor AI', icon: <Zap /> },
+    { name: 'Langfuse', icon: <BarChart3 /> },
+    { name: 'Agentic Workflow', icon: <Workflow /> },
     { name: 'Java', icon: <Cpu /> },
-    { name: 'C Programming', icon: <Code2 /> },
     { name: 'HTML/CSS', icon: <Layout /> },
 ];
 
