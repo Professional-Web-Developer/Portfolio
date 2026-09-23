@@ -1,102 +1,131 @@
 'use client';
-import React, { useRef } from 'react';
-import { Element } from 'react-scroll';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
-import { Link } from 'react-scroll';
+import React from 'react';
+import { Element, Link } from 'react-scroll';
+import { motion } from 'framer-motion';
+import { ArrowDown, ArrowUpRight, BadgeCheck, Download } from 'lucide-react';
 import './TopContainer.css';
 
+const agentSteps = [
+  { label: 'plan', text: 'Break the task into steps', ms: '0.4s' },
+  { label: 'tool', text: 'Query PostgreSQL for client data', ms: '1.2s' },
+  { label: 'llm', text: 'Claude drafts the report', ms: '2.9s' },
+  { label: 'trace', text: 'Logged to Langfuse', ms: '0.1s' },
+];
+
 function TopContainer() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
   return (
-    <Element name="about" className="topcontainer" style={{ position: 'relative', overflow: 'hidden' }}>
-      <motion.div
-        ref={ref}
-        className="hero-content"
-        style={{ y, opacity }}
-      >
+    <Element name="about" className="topcontainer">
+      <div className="hero-content">
         <div className="hero-text">
           <motion.div
             className="hero-badge"
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Available for Opportunities
+            <span className="pulse-dot" />
+            Available for opportunities
           </motion.div>
-          <h1 className="hero-title">
-            <motion.span
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ display: 'block', overflow: 'hidden' }}
-            >
-              Building Digital
-            </motion.span>
-            <motion.span
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="gradient-text-hero"
-              data-text="Experience"
-              style={{ display: 'block', overflow: 'hidden' }}
-            >
-              Experience
-            </motion.span>
-          </h1>
+
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
+            Full-stack engineer building{' '}
+            <span className="gradient-text">AI agents</span> that ship.
+          </motion.h1>
 
           <motion.p
             className="description"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            I&apos;m <b>Kavin Pasupathy</b>. A Software Engineer specializing in full-stack development,
-            <b> AI Agents</b>, and <b>Agentic AI</b>. Building scalable web applications and intelligent automation systems at <b>Belsterns Technologies</b>.
+            I&apos;m <b>Kavin Pasupathy</b>, a Software Engineer at <b>Belsterns Technologies</b>. I build
+            web products with Next.js and PostgreSQL, and agentic workflows with Claude that automate real
+            business processes.
           </motion.p>
+
+          <motion.a
+            className="cert-pill"
+            href="https://www.credly.com/badges/6cd276b2-03bc-44cf-98b6-950d17dbc8e3"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            <BadgeCheck size={16} />
+            Claude Certified Architect – Foundations
+            <ArrowUpRight size={14} />
+          </motion.a>
 
           <motion.div
             className="cta-container"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
           >
-            <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" download className="btn primary-btn glow-effect">
-              Download Resume
-            </a>
-            <Link to="projects" smooth={true} duration={800} offset={-50} className="btn secondary-btn">
-              View Projects
+            <Link to="projects" smooth={true} duration={800} offset={-70} className="btn primary-btn">
+              View projects
             </Link>
+            <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="btn secondary-btn">
+              <Download size={16} /> Resume
+            </a>
           </motion.div>
         </div>
 
         <motion.div
           className="hero-visuals"
-          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.2, type: "spring" }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3 }}
         >
-          <div className="abstract-shape">
-            <div className="shape-blur"></div>
+          <div className="agent-card">
+            <div className="agent-card__bar">
+              <span /><span /><span />
+              <em>agent.run · example trace</em>
+            </div>
+            <div className="agent-card__body">
+              <div className="agent-task">
+                <span className="eyebrow">task</span>
+                Generate weekly client report
+              </div>
+              {agentSteps.map((step, i) => (
+                <motion.div
+                  key={step.label}
+                  className="agent-step"
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.9 + i * 0.35 }}
+                >
+                  <span className={`agent-tag agent-tag--${step.label}`}>{step.label}</span>
+                  <span className="agent-text">{step.text}</span>
+                  <span className="agent-ms">{step.ms}</span>
+                </motion.div>
+              ))}
+              <motion.div
+                className="agent-done"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4 }}
+              >
+                ✓ Completed — report delivered
+              </motion.div>
+            </div>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
 
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ delay: 1, duration: 2, repeat: Infinity }}
       >
-        <ArrowDown size={24} />
+        <ArrowDown size={20} />
       </motion.div>
     </Element>
   );
