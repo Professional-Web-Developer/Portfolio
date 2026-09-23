@@ -32,14 +32,14 @@
 /* First card (the certification) gets the AI accent treatment */
 .achievement-card:first-child {
     background:
-        radial-gradient(90% 70% at 0% 0%, rgba(139, 140, 255, 0.16), transparent 70%),
+        radial-gradient(90% 70% at 0% 0%, rgba(0, 212, 255, 0.16), transparent 70%),
         var(--surface);
-    border-color: rgba(139, 140, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
 .achievement-card:hover {
     background-color: var(--surface-hover);
-    border-color: rgba(139, 140, 255, 0.4);
+    border-color: rgba(0, 212, 255, 0.4);
     transform: translateY(-3px);
 }
 
@@ -55,8 +55,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(139, 140, 255, 0.12);
-    border: 1px solid rgba(139, 140, 255, 0.25);
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.25);
 }
 
 .achievement-icon svg {
@@ -84,4 +84,15 @@
 
 .achievement-card a:hover {
     text-decoration: underline;
+}
+
+/* Neon accents */
+.achievement-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+}
+
+.achievement-icon {
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.25);
 }

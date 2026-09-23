@@ -39,7 +39,7 @@
     top: 30px;
     bottom: -28px;
     width: 1px;
-    background: linear-gradient(to bottom, rgba(139, 140, 255, 0.5), var(--border));
+    background: linear-gradient(to bottom, rgba(0, 212, 255, 0.5), var(--border));
 }
 
 .exp-row:last-child .exp-line {
@@ -53,7 +53,7 @@
     margin-top: 30px;
     background: var(--background);
     border: 2px solid var(--primary);
-    box-shadow: 0 0 0 4px rgba(139, 140, 255, 0.14);
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.14);
     z-index: 1;
 }
 
@@ -117,9 +117,9 @@
 }
 
 .exp-badge {
-    color: #d9daff;
-    background: rgba(139, 140, 255, 0.12);
-    border: 1px solid rgba(139, 140, 255, 0.28);
+    color: #b8f3ff;
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.28);
     padding: 4px 12px;
     border-radius: 999px;
     font-size: 0.72rem;
@@ -180,8 +180,8 @@
 }
 
 .glass-panel:hover .exp-tag {
-    border-color: rgba(139, 140, 255, 0.28);
-    color: #d9daff;
+    border-color: rgba(0, 212, 255, 0.28);
+    color: #b8f3ff;
 }
 
 @media (max-width: 768px) {
@@ -199,4 +199,19 @@
         gap: 12px;
         align-items: center;
     }
+}
+
+/* Neon accents */
+.exp-role-group h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+}
+
+.exp-node {
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.7), 0 0 24px rgba(0, 212, 255, 0.25);
+}
+
+.exp-line {
+    box-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
 }

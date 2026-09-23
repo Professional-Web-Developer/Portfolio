@@ -35,9 +35,9 @@
 .skill-group--featured {
     grid-row: span 2;
     background:
-        radial-gradient(90% 60% at 0% 0%, rgba(139, 140, 255, 0.18), transparent 70%),
+        radial-gradient(90% 60% at 0% 0%, rgba(0, 212, 255, 0.18), transparent 70%),
         var(--surface);
-    border-color: rgba(139, 140, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
 .skill-group__head {
@@ -60,8 +60,8 @@
     align-items: center;
     justify-content: center;
     color: var(--primary);
-    background: rgba(139, 140, 255, 0.12);
-    border: 1px solid rgba(139, 140, 255, 0.25);
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.25);
 }
 
 .skill-icon svg {
@@ -93,7 +93,7 @@
 }
 
 .skill-group:hover .skill-chip {
-    border-color: rgba(139, 140, 255, 0.28);
+    border-color: rgba(0, 212, 255, 0.28);
 }
 
 .additional-info {
@@ -133,4 +133,22 @@
     .skill-group--featured {
         grid-column: auto;
     }
+}
+
+/* Neon accents */
+.skill-group__head h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.skill-icon {
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.25);
+}
+
+.skill-chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    border-radius: 4px;
 }

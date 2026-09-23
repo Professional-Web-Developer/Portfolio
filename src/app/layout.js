@@ -1,7 +1,8 @@
 import './globals.css'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, Orbitron, JetBrains_Mono } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
+const orbitron = Orbitron({ subsets: ['latin'], variable: '--orbitron', weight: ['400', '700', '900'] })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
 
 export const metadata = {
@@ -11,8 +12,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${mono.variable}`} style={{ fontFamily: 'var(--inter), sans-serif' }}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${orbitron.variable} ${mono.variable}`}>
+      <body style={{ fontFamily: 'var(--inter), sans-serif' }}>{children}</body>
     </html>
   )
 }

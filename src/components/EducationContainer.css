@@ -36,7 +36,7 @@
     border-radius: 50%;
     background: var(--background);
     border: 2px solid var(--primary);
-    box-shadow: 0 0 0 4px rgba(139, 140, 255, 0.14);
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.14);
 }
 
 .timeline-content {
@@ -62,8 +62,8 @@
 
 .timeline-icon {
     color: var(--primary);
-    background: rgba(139, 140, 255, 0.12);
-    border: 1px solid rgba(139, 140, 255, 0.25);
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.25);
     width: 42px;
     height: 42px;
     border-radius: 12px;
@@ -131,4 +131,19 @@
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+/* Neon accents */
+.timeline-info h3 {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+}
+
+.timeline-dot {
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.7), 0 0 24px rgba(0, 212, 255, 0.25);
+}
+
+.timeline {
+    box-shadow: -1px 0 12px rgba(0, 212, 255, 0.08);
 }
