@@ -17,16 +17,6 @@ function TopContainer() {
     <Element name="about" className="topcontainer">
       <div className="hero-content">
         <div className="hero-text">
-          <motion.div
-            className="hero-badge"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <span className="pulse-dot" />
-            Available for opportunities
-          </motion.div>
-
           <motion.h1
             className="hero-title"
             initial={{ opacity: 0, y: 20 }}
