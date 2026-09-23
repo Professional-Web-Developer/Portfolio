@@ -2,7 +2,7 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { Trophy, TrendingUp } from 'lucide-react';
+import { Trophy, TrendingUp, BadgeCheck } from 'lucide-react';
 import './Achievements.css';
 
 const achievements = [
@@ -17,6 +17,13 @@ const achievements = [
         desc: 'Secured First Rank at the college level during the Undergraduate Department of Computer Science (BSc).',
         icon: <Trophy />,
         color: 'var(--secondary)'
+    },
+    {
+        title: 'Claude Certified Architect – Foundations',
+        desc: 'Certified by Anthropic as a Claude Certified Architect (Foundations).',
+        icon: <BadgeCheck />,
+        color: 'var(--primary)',
+        link: 'https://www.credly.com/badges/6cd276b2-03bc-44cf-98b6-950d17dbc8e3'
     }
 ];
 
@@ -49,6 +56,11 @@ function Achievements() {
                             <div className="achievement-icon" style={{ color: item.color }}>{item.icon}</div>
                             <h3>{item.title}</h3>
                             <p>{item.desc}</p>
+                            {item.link && (
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ color: item.color }}>
+                                    Verify on Credly →
+                                </a>
+                            )}
                         </motion.div>
                     ))}
                 </div>
