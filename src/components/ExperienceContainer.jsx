@@ -2,7 +2,7 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar } from 'lucide-react';
 import './ExperienceContainer.css';
 
 const experience = [
@@ -10,17 +10,26 @@ const experience = [
         company: 'Belsterns Technologies',
         role: 'Junior Software Engineer',
         duration: 'Jan 2025 – Present',
-        desc: 'Working across Eztest and client projects — building full-stack web applications with Next.js, MERN Stack, and Dockerized environments. Contributing to AI Agents, Agentic AI, and Agentic Workflow solutions for business automation, open-source tooling with Next.js & PostgreSQL, and cross-functional client deliverables.',
         type: 'Full-time',
-        skills: ['Next.js', 'MERN Stack', 'AI Agents', 'Agentic AI', 'Agentic Workflow', 'PostgreSQL', 'Docker']
+        points: [
+            'Develop and ship full-stack features for client web applications using Next.js and PostgreSQL, deployed in Dockerized environments.',
+            'Build features for Eztest, an online test management platform, and AI-agent based task orchestration for business workflows.',
+            'Design AI-agent workflows that automate client reporting and business processes: integrating the Claude API, orchestrating multi-step agent tasks, and monitoring agent behavior with Langfuse.',
+            'Lead client modules end-to-end, from requirements and API/database design to implementation and release, working with cross-functional teams.',
+            'Reduced manual reporting effort for clients by replacing repetitive workflows with automated agent pipelines.',
+        ],
+        skills: ['Next.js', 'PostgreSQL', 'Docker', 'AI Agents', 'Claude API', 'Langfuse'],
     },
     {
         company: 'Belsterns Technologies',
         role: 'Software Development Engineer Intern',
         duration: 'Sep 2024 – Jan 2025',
-        desc: 'Designed and optimized web applications in MERN Stack and Next.js. Assisted senior developers in delivering scalable software aligned with client requirements.',
         type: 'Internship',
-        skills: ['React', 'Next.js', 'JavaScript', 'CSS', 'Git']
+        points: [
+            'Built and optimized responsive web applications in the MERN stack and Next.js for client-facing projects.',
+            'Contributed to client projects using Next.js and was promoted to full-time Junior Software Engineer within 4 months.',
+        ],
+        skills: ['React', 'Next.js', 'MERN', 'JavaScript', 'Git'],
     },
 ];
 
@@ -29,9 +38,9 @@ function ExperienceContainer() {
         <Element name="experience" className="experience-container">
             <div className="experience-wrapper">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                     className="section-title"
                 >
@@ -44,20 +53,16 @@ function ExperienceContainer() {
                         <motion.div
                             key={index}
                             className="exp-row"
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
                             viewport={{ once: true }}
                         >
-                            {/* Timeline graphic */}
                             <div className="exp-timeline-graphic">
                                 <div className="exp-line"></div>
-                                <div className="exp-node">
-                                    <div className="exp-node-inner"></div>
-                                </div>
+                                <div className="exp-node"></div>
                             </div>
 
-                            {/* Content Card */}
                             <div className="exp-content">
                                 <div className="exp-card glass-panel">
                                     <div className="exp-header">
@@ -71,13 +76,17 @@ function ExperienceContainer() {
                                         <div className="exp-meta">
                                             <div className="exp-badge">{item.type}</div>
                                             <div className="exp-date">
-                                                <Calendar size={14} />
+                                                <Calendar size={13} />
                                                 <span>{item.duration}</span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <p className="exp-description">{item.desc}</p>
+                                    <ul className="exp-points">
+                                        {item.points.map((point, i) => (
+                                            <li key={i}>{point}</li>
+                                        ))}
+                                    </ul>
 
                                     <div className="exp-tags">
                                         {item.skills.map((skill, i) => (
