@@ -2,28 +2,22 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { Trophy, TrendingUp, BadgeCheck } from 'lucide-react';
+import { Trophy, BadgeCheck } from 'lucide-react';
 import './Achievements.css';
 
 const achievements = [
-    {
-        title: 'Top 6.9% LeetCoder',
-        desc: 'Ranked in the top 6.9% globally on LeetCode with 50+ days of consistent problem-solving in 2024.',
-        icon: <TrendingUp />,
-        color: 'var(--primary)'
-    },
-    {
-        title: 'College First Rank',
-        desc: 'Secured First Rank at the college level during the Undergraduate Department of Computer Science (BSc).',
-        icon: <Trophy />,
-        color: 'var(--secondary)'
-    },
     {
         title: 'Claude Certified Architect – Foundations',
         desc: 'Certified by Anthropic as a Claude Certified Architect (Foundations).',
         icon: <BadgeCheck />,
         color: 'var(--primary)',
         link: 'https://www.credly.com/badges/6cd276b2-03bc-44cf-98b6-950d17dbc8e3'
+    },
+    {
+        title: 'College First Rank',
+        desc: 'Secured First Rank at the college level during the Undergraduate Department of Computer Science (BSc).',
+        icon: <Trophy />,
+        color: 'var(--secondary)'
     }
 ];
 
