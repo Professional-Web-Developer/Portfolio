@@ -1,8 +1,6 @@
 .educationcontainer {
-    min-height: 80vh;
     width: 100%;
-    padding: 120px 20px;
-    background-color: var(--background);
+    padding: 110px 20px;
     display: flex;
     justify-content: center;
 }
@@ -14,74 +12,45 @@
 
 .timeline {
     position: relative;
-    padding: 20px 0;
-    border-left: 1px solid rgba(0, 212, 255, 0.15);
-    margin-left: 20px;
-    box-shadow: -1px 0 12px rgba(0, 212, 255, 0.05);
+    padding: 4px 0;
+    border-left: 1px solid var(--border);
+    margin-left: 12px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 36px;
-    padding-left: 40px;
-    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 36px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
 }
 
 .timeline-dot {
     position: absolute;
-    left: -8px;
-    top: 24px;
-    width: 15px;
-    height: 15px;
+    left: -7px;
+    top: 30px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background: var(--background);
-    border: 1.5px solid var(--primary);
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.7), 0 0 20px rgba(0, 212, 255, 0.3);
-}
-
-.timeline-dot::after {
-    content: '';
-    position: absolute;
-    inset: 3px;
-    border-radius: 50%;
-    background: var(--primary);
-    box-shadow: 0 0 6px var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 0 4px rgba(139, 140, 255, 0.14);
 }
 
 .timeline-content {
-    padding: 22px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    background: rgba(0, 212, 255, 0.02);
-    border: 1px solid rgba(0, 212, 255, 0.06);
-    position: relative;
-    overflow: hidden;
-}
-
-.timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 16px;
-    height: 16px;
-    border-top: 1.5px solid var(--primary);
-    border-right: 1.5px solid var(--primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    padding: 22px 24px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
 }
 
 .timeline-content:hover {
-    background: rgba(0, 212, 255, 0.05);
-    border-color: rgba(0, 212, 255, 0.2);
-    transform: translateX(5px);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.08), 0 8px 24px -8px rgba(0, 0, 0, 0.4);
-}
-
-.timeline-content:hover::before {
-    opacity: 1;
-    box-shadow: 4px -4px 10px rgba(0, 212, 255, 0.3);
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+    transform: translateX(4px);
 }
 
 .timeline-header {
@@ -93,31 +62,33 @@
 
 .timeline-icon {
     color: var(--primary);
-    background: rgba(0, 212, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    padding: 10px;
-    border-radius: 6px;
+    background: rgba(139, 140, 255, 0.12);
+    border: 1px solid rgba(139, 140, 255, 0.25);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.4));
     flex-shrink: 0;
 }
 
+.timeline-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
 .timeline-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--foreground);
     margin-bottom: 4px;
-    font-family: var(--font-display);
-    letter-spacing: 0.02em;
 }
 
 .timeline-info h4 {
-    font-size: 0.85rem;
+    font-size: 0.86rem;
     font-weight: 500;
-    color: #475569;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    color: var(--subtle);
+    letter-spacing: 0;
 }
 
 .timeline-details {
@@ -131,26 +102,29 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+
+.detail-row svg {
     color: var(--primary);
-    font-weight: 600;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 0.04em;
 }
 
 .timeline-desc {
-    color: #475569;
-    line-height: 1.6;
-    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 0.92rem;
+    margin: 0;
 }
 
 @media (max-width: 600px) {
     .timeline {
-        margin-left: 10px;
+        margin-left: 6px;
     }
 
     .timeline-item {
-        padding-left: 24px;
+        padding-left: 22px;
     }
 
     .timeline-header {
