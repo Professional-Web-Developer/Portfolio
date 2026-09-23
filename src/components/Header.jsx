@@ -50,11 +50,16 @@ function Header() {
                             smooth={true}
                             duration={500}
                             className="nav-link"
+                            activeClass="active"
+                            spy={true}
                             offset={-80}
                         >
                             {link.name}
                         </Link>
                     ))}
+                    <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="nav-resume">
+                        Resume
+                    </a>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -85,6 +90,9 @@ function Header() {
                                 {link.name}
                             </Link>
                         ))}
+                        <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="mobile-nav-link">
+                            Resume
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
