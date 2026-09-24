@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
 
-const siteUrl = 'https://kavinpasupathy.vercel.app'
+const siteUrl = 'https://kavin-pasupathy.vercel.app'
 const title = 'Kavin Pasupathy | Full-Stack & AI Agent Engineer'
 const description =
   'Software Engineer at Belsterns Technologies building full-stack products with Next.js and PostgreSQL, and AI-agent workflows with Claude. Claude Certified Architect – Foundations.'

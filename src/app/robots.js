@@ -1,4 +1,4 @@
-const siteUrl = 'https://kavinpasupathy.vercel.app'
+const siteUrl = 'https://kavin-pasupathy.vercel.app'
 
 export default function robots() {
   return {
