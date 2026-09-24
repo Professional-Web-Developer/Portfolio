@@ -1,11 +1,25 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, Mail, Phone, Rocket, Code2 } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, Phone, Rocket, Code2, Copy, Check } from 'lucide-react';
 import './Contact.css';
 
+const EMAIL = 'pasupathy.kavinmca@gmail.com';
+
 function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (e) {
+      /* clipboard unavailable: the mailto link still works */
+    }
+  };
+
   return (
     <Element name="contact" className="contact">
       <motion.div
@@ -23,8 +37,12 @@ function Contact() {
         <div className="contact-links">
           <a href="mailto:pasupathy.kavinmca@gmail.com" className="contact-link">
             <div className="icon-box"><Mail /></div>
-            <span>pasupathy.kavinmca@gmail.com</span>
+            <span>{EMAIL}</span>
           </a>
+          <button type="button" className="copy-btn" onClick={copyEmail} aria-live="polite">
+            {copied ? <Check size={15} /> : <Copy size={15} />}
+            {copied ? 'Copied' : 'Copy email'}
+          </button>
           <a href="tel:+918667328882" className="contact-link">
             <div className="icon-box"><Phone /></div>
             <span>+91 8667328882</span>

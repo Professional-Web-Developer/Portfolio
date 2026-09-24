@@ -148,7 +148,7 @@
     color: var(--foreground);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
     .header__nav {
         display: none;
     }
@@ -162,4 +162,10 @@
     .header__name {
         display: none;
     }
+}
+
+.header__name,
+.nav-link,
+.nav-resume {
+    white-space: nowrap;
 }
