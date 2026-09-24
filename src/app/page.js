@@ -3,7 +3,6 @@
 import Header from '../components/Header'
 import TopContainer from '../components/TopContainer'
 import ExperienceContainer from '../components/ExperienceContainer'
-import ApproachContainer from '../components/ApproachContainer'
 import ProjectContainer from '../components/ProjectContainer'
 import Skillcontainer from '../components/Skillcontainer'
 import EducationContainer from '../components/EducationContainer'
@@ -20,7 +19,6 @@ export default function Home() {
                 <TopContainer />
                 <Skillcontainer />
                 <ExperienceContainer />
-                <ApproachContainer />
                 <ProjectContainer />
                 <EducationContainer />
                 <Achievements />
