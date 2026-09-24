@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
