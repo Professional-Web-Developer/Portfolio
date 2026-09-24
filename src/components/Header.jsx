@@ -1,48 +1,62 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Header.css';
+
+const navLinks = [
+    { name: 'About', to: 'about' },
+    { name: 'Skills', to: 'skills' },
+    { name: 'Experience', to: 'experience' },
+    { name: 'Projects', to: 'projects' },
+    { name: 'Education', to: 'education' },
+    { name: 'Achievements', to: 'achievements' },
+    { name: 'Contact', to: 'contact' },
+];
 
 function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
+        const handleScroll = () => setScrolled(window.scrollY > 24);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
-        { name: 'About', to: 'about' },
-        { name: 'Skills', to: 'skills' },
-        { name: 'Experience', to: 'experience' },
-        { name: 'Projects', to: 'projects' },
-        { name: 'Education', to: 'education' },
-        { name: 'Achievements', to: 'achievements' },
-        { name: 'Contact', to: 'contact' },
-    ];
+    // The inline script in layout.js has already set data-theme; sync React to it.
+    useEffect(() => {
+        setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+    }, []);
+
+    const toggleTheme = () => {
+        const next = theme === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+        document.documentElement.setAttribute('data-theme', next);
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {
+            /* storage unavailable: theme still applies for this visit */
+        }
+    };
 
     return (
         <motion.header
             className={`header ${scrolled ? 'scrolled' : ''}`}
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
             <div className="header__content">
                 <div className="header__logo">
-                    <h1>
-                        Kavin <span>Pasupathy</span>
-                    </h1>
+                    <span className="header__monogram" aria-hidden="true">KP</span>
+                    <span className="header__name">Kavin Pasupathy</span>
                 </div>
 
-                {/* Desktop Nav */}
-                <nav className="header__nav">
+                <nav className="header__nav" aria-label="Primary">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -57,18 +71,37 @@ function Header() {
                             {link.name}
                         </Link>
                     ))}
-                    <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="nav-resume">
-                        Resume
-                    </a>
                 </nav>
 
-                {/* Mobile Menu Toggle */}
-                <div className="header__mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                <div className="header__actions">
+                    <button
+                        type="button"
+                        className="icon-btn"
+                        onClick={toggleTheme}
+                        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                    >
+                        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                    </button>
+                    <a
+                        href="/assets/KAVIN_PASUPATHY_RESUME.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-resume"
+                    >
+                        Resume
+                    </a>
+                    <button
+                        type="button"
+                        className="icon-btn header__mobile-toggle"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={mobileMenuOpen}
+                    >
+                        {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
                 </div>
             </div>
 
-            {/* Mobile Nav Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
@@ -90,9 +123,6 @@ function Header() {
                                 {link.name}
                             </Link>
                         ))}
-                        <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="mobile-nav-link">
-                            Resume
-                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>

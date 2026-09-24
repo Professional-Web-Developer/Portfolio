@@ -1,8 +1,7 @@
 import './globals.css'
-import { Inter, Orbitron, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
-const orbitron = Orbitron({ subsets: ['latin'], variable: '--orbitron', weight: ['400', '700', '900'] })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
 
 export const metadata = {
@@ -10,9 +9,15 @@ export const metadata = {
   description: 'Portfolio of Kavin Pasupathy, a Software Engineer based in India.',
 }
 
+// Runs before first paint so the saved / system theme applies with no flash.
+const themeScript = `try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}`
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${orbitron.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body style={{ fontFamily: 'var(--inter), sans-serif' }}>{children}</body>
     </html>
   )

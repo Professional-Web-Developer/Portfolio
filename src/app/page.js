@@ -11,15 +11,18 @@ import Contact from '../components/Contact'
 
 export default function Home() {
     return (
-        <main className="App">
+        <>
+            <a href="#main" className="skip-link">Skip to content</a>
             <Header />
-            <TopContainer />
-            <Skillcontainer />
-            <ExperienceContainer />
-            <ProjectContainer />
-            <EducationContainer />
-            <Achievements />
-            <Contact />
-        </main>
+            <main className="App" id="main">
+                <TopContainer />
+                <Skillcontainer />
+                <ExperienceContainer />
+                <ProjectContainer />
+                <EducationContainer />
+                <Achievements />
+                <Contact />
+            </main>
+        </>
     )
 }
