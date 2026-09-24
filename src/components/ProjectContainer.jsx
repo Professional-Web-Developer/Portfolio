@@ -8,28 +8,28 @@ import './ProjectContainer.css';
 
 const projects = [
   {
-    img: '/assets/houserental.png',
+    img: '/assets/houserental.webp',
     title: 'Home Rental Platform',
     desc: 'MERN stack rental marketplace with a booking calendar and real-time availability, search by location and dates, JWT authentication, image uploads and automated email notifications.',
     link: 'https://github.com/Professional-Web-Developer/House_Rental.git',
     tags: ['MERN', 'JWT', 'Nodemailer', 'Multer'],
   },
   {
-    img: '/assets/realestate.png',
+    img: '/assets/realestate.webp',
     title: 'Real Estate Platform',
     desc: 'Property listing platform for buying and selling, with multi-criteria search (continent, price range, property type), secure authentication and REST APIs on Express and MongoDB.',
     link: 'https://github.com/Professional-Web-Developer/Real-Estate.git',
     tags: ['React', 'Express', 'MongoDB', 'Bcrypt'],
   },
   {
-    img: '/assets/et.png',
+    img: '/assets/et.webp',
     title: 'Expense Tracker',
     desc: 'MERN application for tracking daily expenses and visualizing spending habits with interactive charts.',
     link: 'https://github.com/Professional-Web-Developer/expense-tracker.git',
     tags: ['MERN', 'Chart.js'],
   },
   {
-    img: '/assets/tm.png',
+    img: '/assets/tm.webp',
     title: 'Task Manager',
     desc: 'Task management with time tracking, built with React and Node.js for productivity and workflow management.',
     link: 'https://github.com/Professional-Web-Developer/Project-Time-Tracker.git',
