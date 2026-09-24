@@ -44,7 +44,7 @@ function EducationContainer() {
           className="section-header"
         >
           <h2>Education</h2>
-          <p>My academic path and certifications.</p>
+          <p>Academic background.</p>
         </motion.div>
 
         <div className="timeline">
