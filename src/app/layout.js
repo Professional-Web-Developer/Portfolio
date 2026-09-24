@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
@@ -86,6 +87,7 @@ export default function RootLayout({ children }) {
       <body style={{ fontFamily: 'var(--inter), sans-serif' }}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
