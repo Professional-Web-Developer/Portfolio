@@ -1,22 +1,22 @@
 .achievements-container {
-    padding: 110px 20px;
+    padding: 96px 24px;
     display: flex;
     justify-content: center;
 }
 
 .achievements-content {
-    max-width: 1000px;
+    max-width: 1120px;
     width: 100%;
 }
 
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
 }
 
 .achievement-card {
-    padding: 32px 28px;
+    padding: 30px 28px;
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
@@ -24,26 +24,17 @@
     gap: 12px;
     background: var(--surface);
     border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    box-shadow: var(--shadow-1);
 }
 
-/* First card (the certification) gets the AI accent treatment */
+/* First card (the certification) is the featured one */
 .achievement-card:first-child {
     background:
-        radial-gradient(90% 70% at 0% 0%, rgba(0, 212, 255, 0.16), transparent 70%),
+        linear-gradient(180deg, var(--primary-soft), transparent 60%),
         var(--surface);
-    border-color: rgba(0, 212, 255, 0.3);
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
 }
 
-.achievement-card:hover {
-    background-color: var(--surface-hover);
-    border-color: rgba(0, 212, 255, 0.4);
-    transform: translateY(-3px);
-}
-
-/* Legacy scan effect element, no longer used */
 .achievement-card .card-scan {
     display: none;
 }
@@ -55,8 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 212, 255, 0.12);
-    border: 1px solid rgba(0, 212, 255, 0.25);
+    background: var(--primary-soft);
 }
 
 .achievement-icon svg {
@@ -66,33 +56,22 @@
 
 .achievement-card h3 {
     font-size: 1.15rem;
-    color: #fff;
 }
 
 .achievement-card p {
     color: var(--muted);
     line-height: 1.65;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     margin: 0;
 }
 
 .achievement-card a {
     margin-top: 4px;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
 .achievement-card a:hover {
     text-decoration: underline;
-}
-
-/* Neon accents */
-.achievement-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    letter-spacing: 0.03em;
-}
-
-.achievement-icon {
-    box-shadow: 0 0 18px rgba(0, 212, 255, 0.25);
+    text-underline-offset: 3px;
 }
