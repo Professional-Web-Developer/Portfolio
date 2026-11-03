@@ -56,7 +56,7 @@ function Contact() {
           <a href="https://www.linkedin.com/in/kavin-pasupathy-839010289/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LinkedIn">
             <Linkedin />
           </a>
-          <a href="https://leetcode.com/KavinPasupathy" target="_blank" rel="noopener noreferrer" className="social-btn" title="LeetCode">
+          <a href="https://leetcode.com/u/KavinPasupathy/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LeetCode">
             <Code2 />
           </a>
           <a href="https://www.producthunt.com/@kavin_pasupathy" target="_blank" rel="noopener noreferrer" className="social-btn" title="Product Hunt">

@@ -11,27 +11,31 @@ const groups = [
         icon: <Bot />,
         featured: true,
         desc: 'Designing agent workflows that automate real business processes.',
-        skills: ['AI Agents', 'Agentic Workflows', 'Claude API', 'Vercel AI SDK', 'Prompt Engineering', 'Langfuse', 'Agent Orchestration'],
+        skills: [
+            'AI Agents', 'Agentic Workflows', 'Agent Orchestration', 'Claude API', 'Anthropic SDK',
+            'Tool / Function Calling', 'MCP', 'RAG', 'Vector Search', 'Embeddings', 'Agent Skills',
+            'Prompt Engineering', 'Prompt Caching', 'Vercel AI SDK', 'Langfuse', 'OpenTelemetry',
+        ],
     },
     {
         title: 'Frontend',
         icon: <Layout />,
-        skills: ['Next.js', 'React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Responsive UI'],
+        skills: ['Next.js', 'React.js', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Responsive UI'],
     },
     {
         title: 'Backend',
         icon: <Server />,
-        skills: ['Node.js', 'Express.js', 'Python', 'REST APIs', 'JWT Auth', 'Nodemailer', 'Multer'],
+        skills: ['Node.js', 'Express.js', 'Python', 'REST APIs', 'JWT Auth', 'Zod', 'Nodemailer', 'Multer'],
     },
     {
-        title: 'Databases',
+        title: 'Databases & ORM',
         icon: <Database />,
-        skills: ['PostgreSQL', 'MongoDB', 'Mongoose', 'SQL'],
+        skills: ['PostgreSQL', 'Supabase', 'pgvector', 'MongoDB', 'Mongoose', 'Drizzle ORM', 'Prisma ORM', 'SQL'],
     },
     {
         title: 'Tools & DevOps',
         icon: <Wrench />,
-        skills: ['Docker', 'Git & GitHub', 'Vercel', 'Claude', 'Cursor', 'VS Code'],
+        skills: ['Docker', 'Docker Compose', 'GitHub Actions (CI/CD)', 'AWS S3', 'Git & GitHub', 'Vercel', 'Claude', 'Cursor', 'VS Code'],
     },
 ];
 

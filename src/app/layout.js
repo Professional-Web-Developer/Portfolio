@@ -57,7 +57,7 @@ const personJsonLd = {
     { '@type': 'CollegeOrUniversity', name: 'Kongu Engineering College' },
     { '@type': 'CollegeOrUniversity', name: 'Government Arts and Science College, Thittamalai' },
   ],
-  knowsAbout: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'MongoDB', 'AI Agents', 'Agentic Workflows', 'Claude API', 'Docker'],
+  knowsAbout: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'pgvector', 'MongoDB', 'AI Agents', 'Agentic Workflows', 'RAG', 'Claude API', 'Langfuse', 'Docker'],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     name: 'Claude Certified Architect – Foundations',
@@ -66,7 +66,7 @@ const personJsonLd = {
   sameAs: [
     'https://github.com/Professional-Web-Developer',
     'https://www.linkedin.com/in/kavin-pasupathy-839010289/',
-    'https://leetcode.com/KavinPasupathy',
+    'https://leetcode.com/u/KavinPasupathy/',
     'https://www.producthunt.com/@kavin_pasupathy',
   ],
 }
