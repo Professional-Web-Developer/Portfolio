@@ -12,13 +12,13 @@ const experience = [
         duration: 'Jan 2025 – Present',
         type: 'Full-time',
         points: [
-            'Develop and ship full-stack features for client web applications using Next.js and PostgreSQL, deployed in Dockerized environments.',
-            'Build features for Eztest, an online test management platform, and AI-agent based task orchestration for business workflows.',
-            'Design AI-agent workflows that automate client reporting and business processes: integrating the Claude API, orchestrating multi-step agent tasks, and monitoring agent behavior with Langfuse.',
+            'Develop and ship full-stack features for client web applications using Next.js, TypeScript and PostgreSQL, deployed in Dockerized environments.',
+            'Build features for Eztest, an online test management platform built with Next.js and PostgreSQL, plus AI-agent based task orchestration and intelligent process automation for business workflows.',
+            'Design AI-agent workflows that automate client reporting and business processes: integrating Claude LLM APIs with tool/function calling, orchestrating multi-step agent tasks, and monitoring agent behavior with Langfuse.',
             'Lead client modules end-to-end, from requirements and API/database design to implementation and release, working with cross-functional teams.',
             'Reduced manual reporting effort for clients by replacing repetitive workflows with automated agent pipelines.',
         ],
-        skills: ['Next.js', 'PostgreSQL', 'Docker', 'AI Agents', 'Claude API', 'Langfuse'],
+        skills: ['Next.js', 'TypeScript', 'PostgreSQL', 'Docker', 'AI Agents', 'Claude API', 'Langfuse'],
     },
     {
         company: 'Belsterns Technologies',

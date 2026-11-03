@@ -40,9 +40,10 @@ function TopContainer() {
           </motion.h1>
 
           <motion.p className="description" {...rise(0.2)}>
-            I design and build web products with Next.js and PostgreSQL, and agentic workflows with
-            Claude that automate real business processes, from API and database design through to
-            Dockerized deployment.
+            I design and build web products with Next.js, TypeScript and PostgreSQL, and agentic
+            workflows with Claude (tool calling, RAG with pgvector, Langfuse observability) that
+            automate real business processes, from API and database design through to Dockerized
+            deployment.
           </motion.p>
 
           <motion.div className="cta-container" {...rise(0.28)}>
