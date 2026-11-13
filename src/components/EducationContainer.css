@@ -3,9 +3,6 @@
     padding: 96px 24px;
     display: flex;
     justify-content: center;
-    background: var(--background-alt);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
 }
 
 .education-content {
@@ -25,10 +22,6 @@
     display: flex;
 }
 
-.timeline-dot {
-    display: none;
-}
-
 .timeline-content {
     width: 100%;
     padding: 24px;
@@ -36,6 +29,48 @@
     background: var(--surface);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-1);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The certification card is the featured one */
+.timeline-content--featured {
+    background:
+        linear-gradient(180deg, var(--primary-soft), transparent 60%),
+        var(--surface);
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+}
+
+.timeline-kind {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.timeline-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 6px;
+    min-height: 44px;
+    margin: auto 0 -10px -14px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    transition: background 0.2s ease;
+}
+
+.timeline-link:hover {
+    background: var(--primary-soft);
 }
 
 .timeline-header {
@@ -80,7 +115,6 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 14px;
 }
 
 .detail-row {
@@ -94,13 +128,6 @@
 .detail-row svg {
     color: var(--primary);
     flex-shrink: 0;
-}
-
-.timeline-desc {
-    color: var(--muted);
-    line-height: 1.65;
-    font-size: 0.92rem;
-    margin: 0;
 }
 
 @media (max-width: 960px) {

@@ -36,6 +36,12 @@
     border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
 }
 
+/* Compact full-width row (DSA) */
+.skill-group--wide {
+    grid-column: 1 / -1;
+    padding: 20px 26px;
+}
+
 .skill-group__head {
     display: flex;
     align-items: center;

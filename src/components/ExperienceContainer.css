@@ -3,6 +3,9 @@
     padding: 96px 24px;
     display: flex;
     justify-content: center;
+    background: var(--background-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .experience-wrapper {

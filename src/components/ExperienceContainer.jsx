@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
 import './ExperienceContainer.css';
@@ -35,7 +34,7 @@ const experience = [
 
 function ExperienceContainer() {
     return (
-        <Element name="experience" className="experience-container">
+        <section id="experience" className="experience-container">
             <div className="experience-wrapper">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -99,7 +98,7 @@ function ExperienceContainer() {
                     ))}
                 </div>
             </div>
-        </Element>
+        </section>
     );
 }
 

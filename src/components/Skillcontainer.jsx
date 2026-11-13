@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
-import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { Layout, Server, Database, Bot, Wrench, Languages } from 'lucide-react';
+import { Layout, Server, Database, Bot, Wrench, Languages, Binary } from 'lucide-react';
 import './Skillcontainer.css';
 
 const groups = [
@@ -20,12 +19,12 @@ const groups = [
     {
         title: 'Frontend',
         icon: <Layout />,
-        skills: ['Next.js', 'React.js', 'TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Responsive UI'],
+        skills: ['Next.js', 'React.js', 'TypeScript', 'JavaScript (ES6+)', 'Responsive UI'],
     },
     {
         title: 'Backend',
         icon: <Server />,
-        skills: ['Node.js', 'Express.js', 'Python', 'REST APIs', 'JWT Auth', 'Zod', 'Nodemailer', 'Multer'],
+        skills: ['Node.js', 'Express.js', 'Python', 'REST APIs', 'PayPal REST APIs', 'JWT Auth', 'Zod'],
     },
     {
         title: 'Databases & ORM',
@@ -35,13 +34,22 @@ const groups = [
     {
         title: 'Tools & DevOps',
         icon: <Wrench />,
-        skills: ['Docker', 'Docker Compose', 'GitHub Actions (CI/CD)', 'AWS S3', 'Git & GitHub', 'Vercel', 'Claude', 'Cursor', 'VS Code'],
+        skills: ['Docker', 'Docker Compose', 'GitHub Actions (CI/CD)', 'AWS S3', 'AWS EC2', 'Git & GitHub', 'Vercel', 'Claude', 'Cursor'],
+    },
+    {
+        title: 'Data Structures & Algorithms',
+        icon: <Binary />,
+        wide: true,
+        skills: [
+            'Arrays', 'Linked Lists', 'Stacks', 'Queues', 'Hash Maps', 'Trees', 'Graphs', 'Heaps',
+            'Sorting', 'Binary Search', 'Dynamic Programming',
+        ],
     },
 ];
 
 function Skillcontainer() {
     return (
-        <Element name="skills" className="skillcontainer">
+        <section id="skills" className="skillcontainer">
             <div className="skill-content">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -50,7 +58,7 @@ function Skillcontainer() {
                     viewport={{ once: true }}
                     className="section-header"
                 >
-                    <h2>Technical Expertise</h2>
+                    <h2>Skills</h2>
                     <p>Full-stack foundations with a focus on AI agents and automation.</p>
                 </motion.div>
 
@@ -58,7 +66,7 @@ function Skillcontainer() {
                     {groups.map((group, index) => (
                         <motion.div
                             key={group.title}
-                            className={`skill-group ${group.featured ? 'skill-group--featured' : ''}`}
+                            className={`skill-group ${group.featured ? 'skill-group--featured' : ''} ${group.wide ? 'skill-group--wide' : ''}`}
                             initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.07 }}
@@ -91,7 +99,7 @@ function Skillcontainer() {
                     </div>
                 </motion.div>
             </div>
-        </Element>
+        </section>
     );
 }
 

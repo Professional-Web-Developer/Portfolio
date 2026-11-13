@@ -1,6 +1,6 @@
 .contact {
     width: 100%;
-    padding: 96px 24px 48px;
+    padding: 96px 24px 64px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@
 .contact-container {
     max-width: 1120px;
     width: 100%;
-    padding: 56px 48px 28px;
+    padding: 56px 48px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -49,6 +49,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    min-height: 48px;
     padding: 12px 20px;
     border-radius: 999px;
     background: var(--surface);
@@ -105,22 +106,9 @@
     background: var(--primary-soft);
 }
 
-.footer-note {
-    margin-top: 12px;
-    color: var(--subtle);
-    font-size: 0.82rem;
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-    width: 100%;
-}
-
-.footer-note p {
-    margin: 0;
-}
-
 @media (max-width: 600px) {
     .contact-container {
-        padding: 40px 20px 24px;
+        padding: 40px 20px;
     }
 }
 
@@ -128,6 +116,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    min-height: 48px;
     padding: 12px 18px;
     border-radius: 999px;
     border: 1px solid var(--border);
