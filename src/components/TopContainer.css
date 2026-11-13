@@ -12,6 +12,8 @@
 }
 
 .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 1120px;
     width: 100%;
     display: grid;
@@ -172,7 +174,7 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--primary);
+    color: var(--primary-strong);
 }
 
 .agent-step {
@@ -183,6 +185,17 @@
     padding: 9px 12px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+/* Lit by the delegation graph: the card reads as its log */
+.agent-step.is-active {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+}
+
+.agent-step.is-active .agent-text {
+    color: var(--foreground);
 }
 
 .agent-tag {
@@ -195,7 +208,7 @@
 }
 
 .agent-tag--plan { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
-.agent-tag--tool { color: var(--primary); background: var(--primary-soft); }
+.agent-tag--tool { color: var(--primary-strong); background: var(--primary-soft); }
 .agent-tag--llm { color: var(--foreground); background: var(--surface-2); }
 .agent-tag--trace { color: var(--success); background: color-mix(in srgb, var(--success) 14%, transparent); }
 
@@ -212,6 +225,8 @@
 
 /* Facts strip */
 .hero-facts {
+    position: relative;
+    z-index: 1;
     max-width: 1120px;
     width: 100%;
     margin: 72px 0 0;
@@ -248,5 +263,128 @@
     .hero-facts {
         grid-template-columns: repeat(2, 1fr);
         margin-top: 56px;
+    }
+}
+
+/* Entrance: runs from CSS so the server-rendered text is painted straight
+   away. The headline, copy and CTAs only slide (never hidden); secondary
+   pieces may fade. */
+@keyframes hero-slide {
+    from { transform: translateY(14px); }
+    to { transform: none; }
+}
+
+@keyframes hero-fade {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-step {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: none; }
+}
+
+.hero-eyebrow,
+.hero-title,
+.description,
+.cta-container {
+    animation: hero-slide 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cert-pill,
+.hero-visuals,
+.hero-facts {
+    animation: hero-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cert-pill { animation-delay: 0.15s; }
+.hero-visuals { animation-delay: 0.1s; }
+.hero-facts { animation-delay: 0.25s; }
+
+.agent-step,
+.agent-done {
+    animation: hero-step 0.4s ease both;
+    animation-delay: calc(0.4s + var(--i, 0) * 0.2s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow,
+    .hero-title,
+    .description,
+    .cta-container,
+    .cert-pill,
+    .hero-visuals,
+    .hero-facts,
+    .agent-step,
+    .agent-done {
+        animation: none;
+    }
+
+    .agent-step {
+        transition: none;
+    }
+}
+
+/* Decorative delegation graph behind the right side of the hero.
+   Fixed, absolutely positioned box: it never takes part in layout. */
+.agent-scene {
+    position: absolute;
+    top: 16px;
+    /* centred near 74% of a 1440px viewport, tied to the 1120px content column */
+    left: calc(50% + 46px);
+    width: min(600px, calc(50% - 46px));
+    height: 520px;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 26%),
+        radial-gradient(closest-side at 50% 50%, #000 78%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent 0%, #000 26%),
+        radial-gradient(closest-side at 50% 50%, #000 78%, transparent 100%);
+    mask-composite: intersect;
+}
+
+.agent-scene__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    pointer-events: none;
+}
+
+.agent-scene__canvas.is-ready {
+    opacity: 1;
+}
+
+/* Desktop: the card sits at the bottom of its column so the orchestrator
+   shows above it and the card overlaps the lower half of the graph. */
+@media (min-width: 960px) {
+    .hero-visuals {
+        align-self: end;
+    }
+
+    .agent-card__body {
+        padding: 14px 16px 16px;
+        gap: 8px;
+    }
+
+    .agent-step {
+        padding: 7px 12px;
+    }
+}
+
+@media (max-width: 959.98px) {
+    .agent-scene {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .agent-scene__canvas {
+        transition: none;
     }
 }

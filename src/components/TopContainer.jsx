@@ -1,9 +1,21 @@
 'use client';
-import React from 'react';
-import { Element, Link } from 'react-scroll';
-import { motion } from 'framer-motion';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { ArrowUpRight, BadgeCheck, Download } from 'lucide-react';
 import './TopContainer.css';
+
+// Decorative WebGL graph: its own chunk, never part of first-load JS.
+const AgentScene = dynamic(() => import('./AgentScene'), { ssr: false, loading: () => null });
+
+const DESKTOP_QUERY = '(min-width: 960px)';
+
+// Only capable, unconstrained devices get the 3D scene; everyone else keeps the plain hero.
+function canRunScene() {
+  if (!window.matchMedia(DESKTOP_QUERY).matches) return false;
+  if (navigator.connection?.saveData) return false;
+  if (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency < 4) return false;
+  return true;
+}
 
 const agentSteps = [
   { label: 'plan', text: 'Break the task into steps' },
@@ -19,56 +31,96 @@ const facts = [
   { value: '1st', label: 'Rank, B.Sc. Computer Science' },
 ];
 
-const rise = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
-});
-
 function TopContainer() {
+  const heroRef = useRef(null);
+  const [showScene, setShowScene] = useState(false);
+  const [activeStep, setActiveStep] = useState(-1);
+  const handleStep = useCallback((index) => setActiveStep(index), []);
+
+  // Mount the scene only once the hero is on screen and the browser is idle.
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero || showScene) return undefined;
+    let idleId = 0;
+    let timeoutId = 0;
+    let observer = null;
+    const media = window.matchMedia(DESKTOP_QUERY);
+
+    const cancelIdle = () => {
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+      idleId = 0;
+      timeoutId = 0;
+    };
+    const stop = () => {
+      cancelIdle();
+      if (observer) observer.disconnect();
+      observer = null;
+    };
+    const mount = () => setShowScene(true);
+    const start = () => {
+      stop();
+      if (!canRunScene() || typeof IntersectionObserver === 'undefined') return;
+      observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        observer = null;
+        if (window.requestIdleCallback) idleId = window.requestIdleCallback(mount, { timeout: 2000 });
+        else timeoutId = window.setTimeout(mount, 300);
+      });
+      observer.observe(hero);
+    };
+
+    start();
+    media.addEventListener('change', start);
+    return () => {
+      media.removeEventListener('change', start);
+      stop();
+    };
+  }, [showScene]);
+
   return (
-    <Element name="about" className="topcontainer">
+    <section id="about" className="topcontainer" ref={heroRef}>
+      {showScene && <AgentScene onStep={handleStep} />}
       <div className="hero-content">
         <div className="hero-text">
-          <motion.p className="hero-eyebrow" {...rise(0.05)}>
+          <p className="hero-eyebrow">
             Kavin Pasupathy · Software Engineer at Belsterns Technologies
-          </motion.p>
+          </p>
 
-          <motion.h1 className="hero-title" {...rise(0.12)}>
+          <h1 className="hero-title">
             Full-stack engineer building{' '}
             <span className="gradient-text">AI agents</span> that ship.
-          </motion.h1>
+          </h1>
 
-          <motion.p className="description" {...rise(0.2)}>
+          <p className="description">
             I design and build web products with Next.js, TypeScript and PostgreSQL, and agentic
             workflows with Claude (tool calling, RAG with pgvector, Langfuse observability) that
             automate real business processes, from API and database design through to Dockerized
             deployment.
-          </motion.p>
+          </p>
 
-          <motion.div className="cta-container" {...rise(0.28)}>
-            <Link to="projects" smooth={true} duration={800} offset={-70} className="btn primary-btn">
+          <div className="cta-container">
+            <a href="#projects" className="btn primary-btn">
               View projects
-            </Link>
+            </a>
             <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="btn secondary-btn">
               <Download size={16} /> Resume
             </a>
-          </motion.div>
+          </div>
 
-          <motion.a
+          <a
             className="cert-pill"
             href="https://www.credly.com/badges/6cd276b2-03bc-44cf-98b6-950d17dbc8e3"
             target="_blank"
-            rel="noopener noreferrer"
-            {...rise(0.36)}
-          >
+            rel="noopener noreferrer">
             <BadgeCheck size={16} />
             Claude Certified Architect – Foundations
             <ArrowUpRight size={14} />
-          </motion.a>
+          </a>
         </div>
 
-        <motion.div className="hero-visuals" {...rise(0.25)}>
+        <div className="hero-visuals">
           <div className="agent-card" role="img" aria-label="Example of an AI agent run: plan, tool call, LLM draft, trace">
             <div className="agent-card__bar">
               <span /><span /><span />
@@ -80,39 +132,32 @@ function TopContainer() {
                 Generate weekly client report
               </div>
               {agentSteps.map((step, i) => (
-                <motion.div
+                <div
                   key={step.label}
-                  className="agent-step"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.7 + i * 0.3 }}
+                  className={`agent-step${activeStep === i ? ' is-active' : ''}`}
+                  style={{ '--i': i }}
                 >
                   <span className={`agent-tag agent-tag--${step.label}`}>{step.label}</span>
                   <span className="agent-text">{step.text}</span>
-                </motion.div>
+                </div>
               ))}
-              <motion.div
-                className="agent-done"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.1 }}
-              >
+              <div className="agent-done" style={{ '--i': agentSteps.length }}>
                 ✓ Completed – report delivered
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.dl className="hero-facts" {...rise(0.5)}>
+      <dl className="hero-facts">
         {facts.map((fact) => (
           <div key={fact.label} className="hero-fact">
             <dt>{fact.value}</dt>
             <dd>{fact.label}</dd>
           </div>
         ))}
-      </motion.dl>
-    </Element>
+      </dl>
+    </section>
   );
 }
 
