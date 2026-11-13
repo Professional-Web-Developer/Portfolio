@@ -13,13 +13,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/icons-material": "^5.15.7",
-    "@mui/material": "^5.15.7",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.29.0",
@@ -27,7 +20,8 @@
     "next": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scroll": "^1.9.0"
+    "react-scroll": "^1.9.0",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
