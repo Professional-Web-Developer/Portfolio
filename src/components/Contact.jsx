@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, Mail, Phone, Rocket, Code2, Copy, Check } from 'lucide-react';
 import './Contact.css';
@@ -21,7 +20,7 @@ function Contact() {
   };
 
   return (
-    <Element name="contact" className="contact">
+    <section id="contact" className="contact">
       <motion.div
         className="contact-container glass"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -31,11 +30,11 @@ function Contact() {
       >
         <div className="contact-header">
           <h2>Get in Touch</h2>
-          <p>Let&apos;s connect and build something amazing together.</p>
+          <p>For roles, projects or questions about my work, email is the quickest way to reach me.</p>
         </div>
 
         <div className="contact-links">
-          <a href="mailto:pasupathy.kavinmca@gmail.com" className="contact-link">
+          <a href={`mailto:${EMAIL}`} className="contact-link">
             <div className="icon-box"><Mail /></div>
             <span>{EMAIL}</span>
           </a>
@@ -50,28 +49,24 @@ function Contact() {
         </div>
 
         <div className="social-links">
-          <a href="https://github.com/Professional-Web-Developer" target="_blank" rel="noopener noreferrer" className="social-btn" title="GitHub">
-            <Github />
+          <a href="https://github.com/Professional-Web-Developer" target="_blank" rel="noopener noreferrer" className="social-btn" title="GitHub" aria-label="GitHub profile (opens in a new tab)">
+            <Github aria-hidden="true" />
           </a>
-          <a href="https://www.linkedin.com/in/kavin-pasupathy-839010289/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LinkedIn">
-            <Linkedin />
+          <a href="https://www.linkedin.com/in/kavin-pasupathy-839010289/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LinkedIn" aria-label="LinkedIn profile (opens in a new tab)">
+            <Linkedin aria-hidden="true" />
           </a>
-          <a href="https://leetcode.com/u/KavinPasupathy/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LeetCode">
-            <Code2 />
+          <a href="https://leetcode.com/u/KavinPasupathy/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LeetCode" aria-label="LeetCode profile (opens in a new tab)">
+            <Code2 aria-hidden="true" />
           </a>
-          <a href="https://www.producthunt.com/@kavin_pasupathy" target="_blank" rel="noopener noreferrer" className="social-btn" title="Product Hunt">
-            <Rocket />
+          <a href="https://www.producthunt.com/@kavin_pasupathy" target="_blank" rel="noopener noreferrer" className="social-btn" title="Product Hunt" aria-label="Product Hunt profile (opens in a new tab)">
+            <Rocket aria-hidden="true" />
           </a>
-          <a href="https://www.instagram.com/kavinpasupathy/" target="_blank" rel="noopener noreferrer" className="social-btn" title="Instagram">
-            <Instagram />
+          <a href="https://www.instagram.com/kavinpasupathy/" target="_blank" rel="noopener noreferrer" className="social-btn" title="Instagram" aria-label="Instagram profile (opens in a new tab)">
+            <Instagram aria-hidden="true" />
           </a>
-        </div>
-
-        <div className="footer-note">
-          <p>© {new Date().getFullYear()} Kavin Pasupathy. Built with Next.js & React.</p>
         </div>
       </motion.div>
-    </Element>
+    </section>
   );
 }
 

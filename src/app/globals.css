@@ -10,7 +10,7 @@
     --surface-2: #f1f3f4;
     --foreground: #202124;
     --muted: #5f6368;
-    --subtle: #80868b;
+    --subtle: #686e74;
     --border: #dadce0;
     --border-strong: #bdc1c6;
     --primary: #1a73e8;
@@ -39,7 +39,7 @@
     --surface-2: #1d232c;
     --foreground: #e8eaed;
     --muted: #a0a6ae;
-    --subtle: #79808a;
+    --subtle: #8f96a0;
     --border: #2a313b;
     --border-strong: #3c4550;
     --primary: #8ab4f8;
@@ -135,6 +135,11 @@ button {
     top: 16px;
 }
 
+/* Anchor targets clear the fixed header */
+main.App [id] {
+    scroll-margin-top: 72px;
+}
+
 /* Reusable surface */
 .glass {
     background: var(--surface);
@@ -204,7 +209,6 @@ main.App {
 .skill-group,
 .project-card,
 .timeline-content,
-.achievement-card,
 .glass-panel {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -212,7 +216,6 @@ main.App {
 .skill-group:hover,
 .project-card:hover,
 .timeline-content:hover,
-.achievement-card:hover,
 .glass-panel:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-3);

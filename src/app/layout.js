@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--inter' })
-const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono' })
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--mono', preload: false })
 
 const siteUrl = 'https://kavin-pasupathy.vercel.app'
 const title = 'Kavin Pasupathy | Full-Stack & AI Agent Engineer'
