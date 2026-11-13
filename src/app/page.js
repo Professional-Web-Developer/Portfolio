@@ -15,10 +15,7 @@ export default function Home() {
             <a href="#main" className="skip-link">Skip to content</a>
             <Header />
             <main className="App" id="main">
-                {/* The hero has no DOM id of its own; this is the #about anchor target. */}
-                <div id="about">
-                    <TopContainer />
-                </div>
+                <TopContainer />
                 <ExperienceContainer />
                 <ProjectContainer />
                 <Skillcontainer />
