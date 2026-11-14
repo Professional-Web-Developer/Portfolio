@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { ArrowUpRight, BadgeCheck, Download } from 'lucide-react';
+import { ArrowUpRight, BadgeCheck, Car, Download } from 'lucide-react';
 import './TopContainer.css';
 
 // Decorative WebGL graph: its own chunk, never part of first-load JS.
@@ -106,6 +106,9 @@ function TopContainer() {
             </a>
             <a href="/assets/KAVIN_PASUPATHY_RESUME.pdf" target="_blank" rel="noopener noreferrer" className="btn secondary-btn">
               <Download size={16} /> Resume
+            </a>
+            <a href="/city" className="btn secondary-btn">
+              <Car size={16} aria-hidden="true" /> Drive through my resume
             </a>
           </div>
 

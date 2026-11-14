@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Car } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Header.css';
 
@@ -88,6 +88,9 @@ function Header() {
                             {link.name}
                         </a>
                     ))}
+                    <a href="/city" className="nav-link nav-link--city">
+                        <Car size={15} aria-hidden="true" /> Career City
+                    </a>
                 </nav>
 
                 <div className="header__actions">
@@ -141,6 +144,13 @@ function Header() {
                                 {link.name}
                             </a>
                         ))}
+                        <a
+                            href="/city"
+                            className="mobile-nav-link mobile-nav-link--city"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <Car size={17} aria-hidden="true" /> Career City: drive through my resume
+                        </a>
                     </motion.nav>
                 )}
             </AnimatePresence>
