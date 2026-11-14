@@ -277,7 +277,7 @@ export const destinations = {
         kind: 'route',
         label: 'Career City',
         href: CITY_PATH,
-        summary: 'Career City is a 3D driving game on this site: you drive around a small city to buildings, and each building represents a section of Kavin\'s résumé.',
+        summary: 'Career City is a 3D driving game on this site: you drive a little car around a small city with six buildings (Home, Experience, Projects, Skills, Education and Contact), and each one opens that part of Kavin\'s résumé. You can drive yourself or take an auto tour that drives for you.',
     },
 };
 
