@@ -74,6 +74,13 @@
     background: var(--surface-2);
 }
 
+.nav-link--city {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+}
+
 .nav-link.active {
     color: var(--primary);
     background: var(--primary-soft);
@@ -149,6 +156,14 @@
 
 .mobile-nav-link:hover {
     color: var(--foreground);
+}
+
+.mobile-nav-link--city {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    font-weight: 600;
 }
 
 .mobile-nav-link.active {
