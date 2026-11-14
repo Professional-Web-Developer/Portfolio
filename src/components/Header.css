@@ -151,6 +151,20 @@
     color: var(--foreground);
 }
 
+.mobile-menu__view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0 16px;
+}
+
+.mobile-menu__view-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
 .mobile-nav-link.active {
     color: var(--primary);
 }
@@ -162,6 +176,11 @@
 
     .header__mobile-toggle {
         display: inline-grid;
+    }
+
+    /* The view switch moves into the mobile menu. */
+    .header__view-switch {
+        display: none;
     }
 }
 

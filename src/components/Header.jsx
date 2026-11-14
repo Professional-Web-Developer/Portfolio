@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ViewSwitch from './ViewSwitch';
 import './Header.css';
 
 // Order matches the section order in src/app/page.js.
@@ -91,6 +92,7 @@ function Header() {
                 </nav>
 
                 <div className="header__actions">
+                    <ViewSwitch current="classic" className="header__view-switch" />
                     <button
                         type="button"
                         className="icon-btn"
@@ -141,6 +143,10 @@ function Header() {
                                 {link.name}
                             </a>
                         ))}
+                        <div className="mobile-menu__view">
+                            <span className="mobile-menu__view-label">View</span>
+                            <ViewSwitch current="classic" onNavigate={() => setMobileMenuOpen(false)} />
+                        </div>
                     </motion.nav>
                 )}
             </AnimatePresence>
