@@ -1,0 +1,37 @@
+/* Classic | City view switch, used in the home header and the /city top bar. */
+.view-switch {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.view-switch__opt {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--muted);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+a.view-switch__opt:hover {
+    color: var(--foreground);
+    background: var(--surface-2);
+}
+
+.view-switch__opt.is-current {
+    color: var(--on-primary);
+    background: var(--primary);
+    cursor: default;
+}

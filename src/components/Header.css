@@ -74,13 +74,6 @@
     background: var(--surface-2);
 }
 
-.nav-link--city {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--primary);
-}
-
 .nav-link.active {
     color: var(--primary);
     background: var(--primary-soft);
@@ -158,12 +151,18 @@
     color: var(--foreground);
 }
 
-.mobile-nav-link--city {
+.mobile-menu__view {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: var(--primary);
-    font-weight: 600;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0 16px;
+}
+
+.mobile-menu__view-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted);
 }
 
 .mobile-nav-link.active {
@@ -177,6 +176,11 @@
 
     .header__mobile-toggle {
         display: inline-grid;
+    }
+
+    /* The view switch moves into the mobile menu. */
+    .header__view-switch {
+        display: none;
     }
 }
 

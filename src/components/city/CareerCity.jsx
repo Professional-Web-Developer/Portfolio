@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { CONTACT_EMAIL, RESUME_URL, STOPS, STOP_BY_ID } from './stops';
 import StopContent from './StopCard';
+import ViewSwitch from '../ViewSwitch';
 import './CareerCity.css';
 
 // All of three.js lives in this chunk; it is only fetched on /city, and only
@@ -557,10 +558,8 @@ export default function CareerCity() {
   return (
     <div className={`city ${game ? 'city--game' : 'city--list'}`} data-phase={phase}>
       <header className="city-bar">
-        <Link href="/" className="city-back">
-          <ArrowLeft size={18} aria-hidden="true" />
-          <span>Back to portfolio</span>
-        </Link>
+        {/* "Classic" here is the way back to the normal portfolio. */}
+        <ViewSwitch current="city" className="city-bar__switch" />
         {game ? <h1 className="city-bar__title">Career City</h1> : <span className="city-bar__title" aria-hidden="true" />}
         <button
           type="button"

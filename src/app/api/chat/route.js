@@ -6,6 +6,7 @@
 // output-token and step caps (see src/lib/guide/agent.js) and rate limiting.
 
 import { createUIMessageStreamResponse } from 'ai';
+import { isGuideActive, shouldCallModel } from '../../../lib/guide/availability.js';
 import { LIMITS } from '../../../lib/guide/config.js';
 import { checkRateLimit, clientKey, takeModelBudget } from '../../../lib/guide/rate-limit.js';
 import { createGuideStream } from '../../../lib/guide/respond.js';
@@ -16,15 +17,6 @@ export const maxDuration = 30;
 
 function errorResponse(status, code, message, headers) {
     return Response.json({ error: { code, message } }, { status, headers: { 'Cache-Control': 'no-store', ...headers } });
-}
-
-// The AI SDK sends "provider/model" ids through the Vercel AI Gateway. It
-// authenticates with AI_GATEWAY_API_KEY when set, otherwise with the OIDC
-// token Vercel issues to the deployment. With neither (or GUIDE_LOCAL_ONLY=1),
-// skip the model and answer from the local responder.
-function hasModelCredentials() {
-    if (process.env.GUIDE_LOCAL_ONLY === '1') return false;
-    return Boolean(process.env.AI_GATEWAY_API_KEY?.trim() || process.env.VERCEL_OIDC_TOKEN || process.env.VERCEL === '1');
 }
 
 // Browsers send Origin on POST. If it is present it must be this site, which
@@ -41,6 +33,12 @@ function isCrossOrigin(request) {
 }
 
 export async function POST(request) {
+    // Guide switched off, or no AI Gateway credential: behave as if the
+    // endpoint does not exist, before reading the body or doing any work.
+    // See src/lib/guide/availability.js for how this is decided.
+    if (!isGuideActive()) {
+        return errorResponse(404, 'not_found', 'The guide is not enabled on this site.');
+    }
     if (isCrossOrigin(request)) {
         return errorResponse(403, 'forbidden', 'This endpoint can only be used from the portfolio site.');
     }
@@ -77,7 +75,8 @@ export async function POST(request) {
         return errorResponse(400, 'invalid_request', 'The request could not be read.');
     }
 
-    const useModel = hasModelCredentials() && takeModelBudget();
+    // GUIDE_LOCAL_ONLY=1 keeps an active guide on the local responder.
+    const useModel = shouldCallModel() && takeModelBudget();
 
     return createUIMessageStreamResponse({
         stream: createGuideStream({ turns, useModel, signal: request.signal }),

@@ -1,5 +1,6 @@
 // Shared limits and copy for the portfolio guide. Imported by both the API
-// route and the chat panel, so keep it free of server-only code.
+// route and the chat panel, so keep it free of server-only code. Whether the
+// guide is switched on at all is decided in availability.js (server only).
 
 // Model id on the Vercel AI Gateway ("provider/model"). Override with the
 // GUIDE_MODEL environment variable.

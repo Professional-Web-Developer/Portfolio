@@ -1,7 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Car } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ViewSwitch from './ViewSwitch';
 import './Header.css';
 
 // Order matches the section order in src/app/page.js.
@@ -88,12 +89,10 @@ function Header() {
                             {link.name}
                         </a>
                     ))}
-                    <a href="/city" className="nav-link nav-link--city">
-                        <Car size={15} aria-hidden="true" /> Career City
-                    </a>
                 </nav>
 
                 <div className="header__actions">
+                    <ViewSwitch current="classic" className="header__view-switch" />
                     <button
                         type="button"
                         className="icon-btn"
@@ -144,13 +143,10 @@ function Header() {
                                 {link.name}
                             </a>
                         ))}
-                        <a
-                            href="/city"
-                            className="mobile-nav-link mobile-nav-link--city"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <Car size={17} aria-hidden="true" /> Career City: drive through my resume
-                        </a>
+                        <div className="mobile-menu__view">
+                            <span className="mobile-menu__view-label">View</span>
+                            <ViewSwitch current="classic" onNavigate={() => setMobileMenuOpen(false)} />
+                        </div>
                     </motion.nav>
                 )}
             </AnimatePresence>

@@ -135,6 +135,12 @@ button {
     top: 16px;
 }
 
+/* <main> takes focus from the skip link and when the explore chooser closes;
+   it is a landmark, not a control, so it needs no focus ring. */
+main.App:focus {
+    outline: none;
+}
+
 /* Anchor targets clear the fixed header */
 main.App [id] {
     scroll-margin-top: 72px;

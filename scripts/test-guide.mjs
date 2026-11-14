@@ -7,6 +7,7 @@
 import assert from 'node:assert/strict';
 import { simulateReadableStream } from 'ai';
 import { MockLanguageModelV4 } from 'ai/test';
+import { hasGatewayCredential, isGuideActive, isGuideEnabledFlag, shouldCallModel } from '../src/lib/guide/availability.js';
 import { LIMITS, SCOPE_MESSAGE } from '../src/lib/guide/config.js';
 import { respondLocally } from '../src/lib/guide/local-responder.js';
 import { buildSystemPrompt } from '../src/lib/guide/prompt.js';
@@ -185,6 +186,81 @@ await test('local: tour walks the stops in order and can be ended', () => {
     other.push({ role: 'user', text: 'tour' }, { role: 'assistant', text: first2.text });
     assert.match(ask('End the tour', other).text, /tour is over/);
     assert.match(ask('next', []).text, /not on a tour/);
+});
+
+// --- availability gate (GUIDE_ENABLED + AI Gateway credential) -------------
+
+await test('gate: active only with GUIDE_ENABLED and a credential', () => {
+    // Enabled + key: on.
+    assert.equal(isGuideActive({ GUIDE_ENABLED: 'true', AI_GATEWAY_API_KEY: 'dummy' }), true);
+    assert.equal(isGuideActive({ GUIDE_ENABLED: '1', AI_GATEWAY_API_KEY: 'dummy' }), true);
+    // Enabled + OIDC token (build time on Vercel, or after `vercel env pull`): on.
+    assert.equal(isGuideActive({ GUIDE_ENABLED: 'TRUE', VERCEL_OIDC_TOKEN: 'token' }), true);
+    // Enabled without any credential: off. Being on Vercel alone is not a credential.
+    assert.equal(isGuideActive({ GUIDE_ENABLED: 'true' }), false);
+    assert.equal(isGuideActive({ GUIDE_ENABLED: 'true', AI_GATEWAY_API_KEY: '   ', VERCEL: '1' }), false);
+    // Key without GUIDE_ENABLED, or with a falsy value: off.
+    assert.equal(isGuideActive({ AI_GATEWAY_API_KEY: 'dummy' }), false);
+    for (const value of ['false', '0', 'yes', '', 'enabled']) {
+        assert.equal(isGuideActive({ GUIDE_ENABLED: value, AI_GATEWAY_API_KEY: 'dummy' }), false, value);
+    }
+    assert.equal(isGuideActive({}), false);
+});
+
+await test('gate: OIDC token from the Vercel request context counts at request time', () => {
+    const symbol = Symbol.for('@vercel/request-context');
+    const saved = globalThis[symbol];
+    try {
+        globalThis[symbol] = { get: () => ({ headers: { 'x-vercel-oidc-token': 'runtime-token' } }) };
+        assert.equal(hasGatewayCredential({}), true);
+        assert.equal(isGuideActive({ GUIDE_ENABLED: 'true' }), true);
+        assert.equal(isGuideActive({}), false, 'still needs GUIDE_ENABLED');
+        globalThis[symbol] = { get: () => ({ headers: {} }) };
+        assert.equal(hasGatewayCredential({}), false);
+    } finally {
+        globalThis[symbol] = saved;
+    }
+});
+
+await test('gate: GUIDE_LOCAL_ONLY keeps an active guide off the model', () => {
+    const env = { GUIDE_ENABLED: 'true', AI_GATEWAY_API_KEY: 'dummy' };
+    assert.equal(isGuideEnabledFlag(env), true);
+    assert.equal(shouldCallModel(env), true);
+    assert.equal(shouldCallModel({ ...env, GUIDE_LOCAL_ONLY: '1' }), false);
+    assert.equal(isGuideActive({ ...env, GUIDE_LOCAL_ONLY: '1' }), true);
+    assert.equal(shouldCallModel({ AI_GATEWAY_API_KEY: 'dummy' }), false);
+});
+
+await test('route: answers 404 without doing any work when the guide is inactive', async () => {
+    const keys = ['GUIDE_ENABLED', 'AI_GATEWAY_API_KEY', 'VERCEL_OIDC_TOKEN'];
+    const saved = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+    const { POST } = await import('../src/app/api/chat/route.js');
+    const request = (body) =>
+        new Request('http://localhost/api/chat', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', host: 'localhost' },
+            body: JSON.stringify(body),
+        });
+    const set = (vars) => {
+        for (const k of keys) delete process.env[k];
+        Object.assign(process.env, vars);
+    };
+    try {
+        for (const vars of [{}, { GUIDE_ENABLED: 'true' }, { AI_GATEWAY_API_KEY: 'dummy' }]) {
+            set(vars);
+            // An invalid body would be a 400 if the route did any work.
+            const res = await POST(request({ not: 'valid' }));
+            assert.equal(res.status, 404, JSON.stringify(vars));
+            assert.equal((await res.json()).error.code, 'not_found');
+        }
+        set({ GUIDE_ENABLED: 'true', AI_GATEWAY_API_KEY: 'dummy' });
+        assert.equal((await POST(request({ not: 'valid' }))).status, 400);
+    } finally {
+        for (const k of keys) {
+            if (saved[k] === undefined) delete process.env[k];
+            else process.env[k] = saved[k];
+        }
+    }
 });
 
 // --- request validation ---------------------------------------------------

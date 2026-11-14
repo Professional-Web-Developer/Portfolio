@@ -51,25 +51,8 @@
     border-bottom: 1px solid var(--border);
 }
 
-.city-back {
+.city-bar__switch {
     justify-self: start;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 44px;
-    padding: 0 14px 0 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--foreground);
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.city-back:hover {
-    background: var(--surface-2);
-    border-color: var(--border-strong);
 }
 
 .city-bar__title {
@@ -1227,10 +1210,6 @@
         gap: 8px;
     }
 
-    .city-back span {
-        font-size: 0.82rem;
-    }
-
     .city-contacts li {
         grid-template-columns: 80px 1fr;
         padding: 6px 12px;
@@ -1248,7 +1227,7 @@
 }
 
 /* Narrow phones: the bar title moves off-screen (it stays the page heading) so
-   the back link fits on one line. */
+   the view switch and theme button fit on one line. */
 @media (max-width: 480px) {
     .city-bar {
         display: flex;
@@ -1261,10 +1240,6 @@
         height: 1px;
         overflow: hidden;
         clip: rect(0 0 0 0);
-        white-space: nowrap;
-    }
-
-    .city-back {
         white-space: nowrap;
     }
 }
