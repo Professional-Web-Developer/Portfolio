@@ -10,17 +10,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:guide": "node scripts/test-guide.mjs"
   },
   "dependencies": {
+    "@ai-sdk/react": "^4.0.177",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "ai": "^7.0.173",
     "framer-motion": "^12.29.0",
     "lucide-react": "^0.563.0",
     "next": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.187.0"
+    "three": "^0.187.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

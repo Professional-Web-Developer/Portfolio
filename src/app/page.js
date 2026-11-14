@@ -8,6 +8,7 @@ import EducationContainer from '../components/EducationContainer'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
+import Guide from '../components/guide/Guide'
 
 export default function Home() {
     return (
@@ -24,6 +25,8 @@ export default function Home() {
             </main>
             <Footer />
             <BackToTop />
+            {/* After BackToTop on purpose: Guide.css positions the launcher relative to it. */}
+            <Guide />
         </MotionProvider>
     )
 }
